@@ -22,7 +22,6 @@ import {
   colors100,
 } from "./data";
 import { GoSmiley } from "react-icons/go";
-import { HomeIcon } from "styles";
 import { useLocation } from "@remix-run/react";
 import { NavLink } from "react-router-dom";
 import Transition from "~/buildingBlockComponents/transition";
@@ -36,6 +35,7 @@ import IconButton from "~/buildingBlockComponents/iconButton";
 import Box from "~/buildingBlockComponents/box";
 import Text from "~/buildingBlockComponents/text";
 import Flex from "~/buildingBlockComponents/flex";
+import { HomeIcon } from "styles";
 
 interface CustomNavLinkProps {
   to: string;

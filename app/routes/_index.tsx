@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
 import { NavLink } from "@remix-run/react";
-import { FaSquareGithub } from "react-icons/fa6";
 import FlexFull from "~/buildingBlockComponents/flexFull";
 import HStack from "~/buildingBlockComponents/hStack";
 import Icon from "~/buildingBlockComponents/icon";
@@ -60,12 +59,6 @@ export default function Index() {
             </Text>
           </VStackFull>
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
-            <NavButton
-              text="Repo"
-              to="https://github.com/EvanMarie/remix-vite-tailwind"
-              icon={FaSquareGithub}
-              isExternal
-            />
             <NavButton text="Design Presets" to="/design" />{" "}
             <NavButton
               text="DarkViolet.ai"

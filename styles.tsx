@@ -1,0 +1,10 @@
+import { BsCalendar3 } from "react-icons/bs";
+import { IoCloseCircleOutline } from "react-icons/io5";
+import { RiArrowLeftSFill, RiArrowRightSFill } from "react-icons/ri";
+
+export const imageFallback = "";
+
+export const CloseIcon = IoCloseCircleOutline;
+export const CalendarIcon = BsCalendar3;
+export const ArrowLeftIcon = RiArrowLeftSFill;
+export const ArrowRightIcon = RiArrowRightSFill;

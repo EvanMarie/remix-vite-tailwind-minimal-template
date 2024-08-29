@@ -6,29 +6,32 @@ import IconButton from "./iconButton";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import VStack from "./vStack";
 import Heading from "./headingText";
+import Text from "./text";
 
 interface PasswordInputProps {
   name?: string;
   id?: string;
   confirm?: boolean;
-  labelSize?: "normal" | "small";
-  labelIsCursive?: boolean;
   oldPassword?: boolean;
   newPassword?: boolean;
   confirmNewPassword?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  textSize?: string;
+  textColor?: string;
+  textClassName?: string;
 }
 
 export default function PasswordInput({
   name = "password",
   id = "password",
   confirm = false,
-  labelSize = "normal",
-  labelIsCursive = true,
   oldPassword = false,
   newPassword = false,
   confirmNewPassword = false,
   onChange,
+  textSize = "text-lg",
+  textColor = "text-col-300 textShadow",
+  textClassName,
 }: PasswordInputProps) {
   const [show, setShow] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -43,12 +46,6 @@ export default function PasswordInput({
     return "password";
   };
 
-  const getLabelLayout = () => {
-    return labelSize === "normal"
-      ? "text-md-looser md:text-lg-looser"
-      : "text-md-loose";
-  };
-
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.addEventListener("focus", () => {
@@ -58,14 +55,10 @@ export default function PasswordInput({
   }, []);
 
   return (
-    <VStack gap="gap-0" align="start" className={`w-full`} tabIndex={-1}>
-      <Heading
-        layout={getLabelLayout()}
-        text={getLabelText()}
-        isCursive={labelIsCursive}
-        shadow="textShadow"
-        tabIndex={-1}
-      />
+    <VStack gap="gap-0.3vh" align="start" className={`w-full`} tabIndex={-1}>
+      <Text className={`${textSize} ${textColor} ${textClassName}`}>
+        password
+      </Text>
       <HStack className="w-full relative" gap="gap-0" tabIndex={-1}>
         <Box className="relative w-full" tabIndex={-1}>
           <Input

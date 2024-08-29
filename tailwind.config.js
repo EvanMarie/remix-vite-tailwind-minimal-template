@@ -120,30 +120,32 @@ const perspectivePlugin = plugin(function ({ addUtilities }) {
   addUtilities(utilities, ["responsive", "hover"]);
 });
 
-const rotateYPlugin = plugin(function ({ addUtilities }) {
-  const utilities = {
-    ".rotate-y-0": {
-      transform: "rotateY(0deg)",
-    },
-    ".rotate-y-15": {
-      transform: "rotateY(15deg)",
-    },
-    ".rotate-y-45": {
-      transform: "rotateY(45deg)",
-    },
-    ".rotate-y-60": {
-      transform: "rotateY(60deg)",
-    },
-    ".rotate-y-90": {
-      transform: "rotateY(90deg)",
-    },
-    ".rotate-y-105": {
-      transform: "rotateY(105deg)",
-    },
-    ".rotate-y-180": {
-      transform: "rotateY(180deg)",
-    },
-  };
+// ROTATE PLUGIN
+const rotatePlugin = plugin(function ({ addUtilities }) {
+  const increments = 5; // Set to your desired increment
+  const maxRotation = 180;
+  const rotations = Array.from(
+    { length: maxRotation / increments + 1 },
+    (_, i) => i * increments
+  );
+
+  const utilities = Object.assign(
+    {},
+    ...rotations.flatMap((value) => [
+      {
+        [`.rotate-${value}`]: {
+          transform: `rotate(${value}deg)`,
+        },
+      },
+      value !== 0
+        ? {
+            [`.\\-rotate-${value}`]: {
+              transform: `rotate(-${value}deg)`,
+            },
+          }
+        : {},
+    ])
+  );
 
   addUtilities(utilities, ["responsive", "hover"]);
 });
@@ -1831,7 +1833,7 @@ export default {
     customBordersPlugin,
     transitionTimingFunctionsPlugin,
     perspectivePlugin,
-    rotateYPlugin,
+    rotatePlugin,
     backfaceVisibilityPlugin,
     transformStyles,
   ],

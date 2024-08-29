@@ -566,7 +566,7 @@ export default {
   content: ["./app/**/*.{tsx,ts,jsx,js}"],
   theme: {
     extend: {
-      colors: themeColors,
+      colors: { col: themeColors },
       height: Object.assign(
         {},
         ...Array.from({ length: 1000 }, (_, i) => ({

@@ -33,6 +33,7 @@ export default function Button({
   width = "w-fit",
   height,
   textStroke = "text-stroke-0-900 hover:text-stroke-5-900",
+  onMouseEnter,
 }: {
   className?: string;
   buttonText?: string;
@@ -49,6 +50,7 @@ export default function Button({
   height?: string;
   textStroke?: string;
   type?: ButtonType;
+  onMouseEnter?: MouseEventHandler<HTMLButtonElement>;
 }) {
   const buttonClass =
     type === "normal"
@@ -117,6 +119,7 @@ export default function Button({
       ref={ref}
       whileHover={{ scale: 1.01, rotate: -1 }}
       whileTap={{ scale: 0.97, rotate: 1 }}
+      onMouseEnter={onMouseEnter}
     >
       <HStack
         className={combinedClasses}

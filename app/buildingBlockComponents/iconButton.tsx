@@ -19,6 +19,7 @@ export default function IconButton({
   label,
   style,
   tabIndex,
+  onMouseEnter,
 }: {
   containerClassName?: string;
   iconClassName?: string;
@@ -33,6 +34,7 @@ export default function IconButton({
   to?: string;
   style?: React.CSSProperties;
   tabIndex?: number;
+  onMouseEnter?: MouseEventHandler<HTMLButtonElement>;
 
   type?:
     | "normal"
@@ -117,6 +119,7 @@ export default function IconButton({
         ref={ref}
         className={`${containerClassName}`}
         whileTap={{ rotate: 5, scale: 0.8, transition: { duration: 0.3 } }}
+        onMouseEnter={onMouseEnter}
       >
         <Flex className={` ${iconButtonSize} ${buttonClass} `} style={style}>
           {isLoading ? (

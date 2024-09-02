@@ -223,7 +223,7 @@ export default function SlideInContent({
               exit="exit"
               variants={variants}
               transition={transition}
-              className={` ${overlayDimentions} ${overlayClassName} ${overlayPosition}`}
+              className={` ${overlayDimentions} ${overlayClassName} ${overlayPosition} z-40`}
               layout
               onClick={() => setIsMounted(false)}
             >

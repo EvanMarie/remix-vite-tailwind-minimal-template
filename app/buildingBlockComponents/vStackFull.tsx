@@ -29,7 +29,7 @@ const VStackFull = React.forwardRef<HTMLDivElement, VStackFullProps>(
         ref={ref}
         className={`w-full ${gap} ${className}`}
         onClick={onClick}
-        style={style}
+        style={{ ...style, fontSize: "inherit" }}
         align={align}
         tabIndex={tabIndex}
       >

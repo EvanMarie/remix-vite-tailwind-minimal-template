@@ -16,7 +16,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
         ref={ref}
         id={id}
         className={`flex ${className}`}
-        style={style}
+        style={{ ...style, fontSize: "inherit" }}
         onClick={onClick as any}
         tabIndex={tabIndex}
       >

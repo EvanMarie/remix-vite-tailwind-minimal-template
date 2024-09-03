@@ -29,8 +29,8 @@ const VStack = React.forwardRef<HTMLDivElement, VStackProps>(
         tabIndex={tabIndex}
         onClick={onClick}
         className={`flex flex-col ${align} ${gap} ${className}`}
-        ref={ref} // The forwarded ref is applied here
-        style={style}
+        ref={ref}
+        style={{ ...style, fontSize: "inherit" }}
       >
         {children}
       </div>
@@ -38,6 +38,6 @@ const VStack = React.forwardRef<HTMLDivElement, VStackProps>(
   }
 );
 
-VStack.displayName = "VStack"; // Assigning a display name for debugging purposes
+VStack.displayName = "VStack";
 
 export default VStack;

@@ -2,6 +2,8 @@ import React from "react";
 import TextArea from "./textArea";
 import VStack from "./vStack";
 import Heading from "./headingText";
+import Text from "./text";
+import DefaultLabel from "./defaultLabel";
 
 // Update the onChange type to be more generic
 interface TextAreaVStackProps {
@@ -18,10 +20,6 @@ interface TextAreaVStackProps {
   textAreaClassName?: string;
   isEditable?: boolean;
   autoFocus?: boolean;
-  labelSize?: "normal" | "small";
-  labelColor?: string;
-  labelClassName?: string;
-  labelIsCursive?: boolean;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement | HTMLInputElement>;
 }
 
@@ -36,11 +34,8 @@ export default function TextAreaVStack({
   textAreaWidth,
   textAreaHeight,
   textAreaClassName,
-  labelClassName,
   autoFocus,
-  labelColor,
-  labelSize = "normal",
-  labelIsCursive = true,
+
   onChange,
 }: TextAreaVStackProps) {
   return (
@@ -50,25 +45,7 @@ export default function TextAreaVStack({
       style={style}
       gap="gap-[0.5vh]"
     >
-      {labelSize === "small" ? (
-        <Heading
-          isCursive={labelIsCursive}
-          color={labelColor}
-          className={`${labelClassName}`}
-          layout="text-md-tighter"
-          text={label}
-        />
-      ) : (
-        <>
-          <Heading
-            isCursive={labelIsCursive}
-            color={labelColor}
-            className={` ${labelClassName}`}
-            layout="text-md-tighter md:text-lg-tighter"
-            text={label}
-          />
-        </>
-      )}
+      {label && <DefaultLabel label={label} />}
 
       <TextArea
         // eslint-disable-next-line jsx-a11y/no-autofocus

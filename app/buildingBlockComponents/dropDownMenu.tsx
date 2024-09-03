@@ -3,12 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Flex from "./flex";
 import Icon from "./icon";
 import { BiChevronDown } from "react-icons/bi";
-import Heading from "./headingText";
-import { TextShadows } from "types";
 import HStackFull from "./hStackFull";
 import Text from "./text";
 import VStackFull from "./vStackFull";
 import FlexFull from "./flexFull";
+import DefaultLabel from "./defaultLabel";
 
 export default function DropDownMenu({
   options,
@@ -22,11 +21,6 @@ export default function DropDownMenu({
   menuTextColor = "text-col-900",
   elementPadding = "px-[1vh] py-[0.2vh]",
   label,
-  labelColor,
-  labelSize = "normal",
-  labelIsCursive = true,
-  labelClassName,
-  labelShadow,
   selectedOption,
   setSelectedOption,
 }: {
@@ -41,11 +35,6 @@ export default function DropDownMenu({
   menuTextColor?: string;
   elementPadding?: string;
   label?: string;
-  labelSize?: "normal" | "small";
-  labelColor?: string;
-  labelClassName?: string;
-  labelIsCursive?: boolean;
-  labelShadow?: string;
   selectedOption: string | undefined;
   setSelectedOption:
     | Dispatch<any | string | undefined>
@@ -74,81 +63,62 @@ export default function DropDownMenu({
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   return (
-    <VStackFull gap="gap-[0px]" align="items-start">
-      {label && labelSize === "small" && (
-        <Heading
-          isCursive={labelIsCursive}
-          color={labelColor}
-          className={`${labelClassName}`}
-          layout="text-md-loose"
-          shadow={labelShadow as TextShadows}
-          text={label}
+    <VStackFull
+      className={`mainShadow relative `}
+      gap="gap-[0.5vh]"
+      align="items-start"
+    >
+      {label && <DefaultLabel label={label} />}
+      <HStackFull
+        onClick={() => setIsDropDownOpen(!isDropDownOpen)}
+        className={`${bgSettings} ${menuTextColor} ${elementPadding} hover:cursor-pointer items-center justify-between ${
+          isDropDownOpen ? "rounded-b-none" : ""
+        }  `}
+        //   style={{ zIndex: 100 }}
+      >
+        <Flex className={`${buttonTextSize}`}>
+          {selectedOption ? selectedOption : buttonText}
+        </Flex>
+        <Icon
+          icon={BiChevronDown}
+          iconClassName={`${iconSize} ${
+            isDropDownOpen
+              ? "transform rotate-180 transition-transform duration-500"
+              : "transform rotate-0 transition-transform duration-500"
+          }`}
         />
-      )}
-      {label && labelSize === "normal" && (
-        <>
-          <Heading
-            isCursive={labelIsCursive}
-            color={labelColor}
-            className={` ${labelClassName}`}
-            shadow={labelShadow as TextShadows}
-            layout="text-md-loose md:text-lg-loose"
-            text={label}
-          />
-        </>
-      )}
-      <VStackFull className={`mainShadow relative `} gap="gap-[0px]">
-        <HStackFull
-          onClick={() => setIsDropDownOpen(!isDropDownOpen)}
-          className={`${bgSettings} ${menuTextColor} ${elementPadding} hover:cursor-pointer items-center justify-between ${
-            isDropDownOpen ? "rounded-b-none" : ""
-          }  `}
-          //   style={{ zIndex: 100 }}
-        >
-          <Flex className={`${buttonTextSize}`}>
-            {selectedOption ? selectedOption : buttonText}
-          </Flex>
-          <Icon
-            icon={BiChevronDown}
-            iconClassName={`${iconSize} ${
-              isDropDownOpen
-                ? "transform rotate-180 transition-transform duration-500"
-                : "transform rotate-0 transition-transform duration-500"
-            }`}
-          />
-        </HStackFull>
-        <AnimatePresence>
-          {isDropDownOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -25 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -25 }}
-              transition={{ duration: 0.4 }}
-              style={{
-                width: "100%",
-                zIndex: 10,
-                borderRadius: "0px",
-                position: "absolute",
-                top: "100%",
-                left: "0",
-              }}
+      </HStackFull>
+      <AnimatePresence>
+        {isDropDownOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -25 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -25 }}
+            transition={{ duration: 0.4 }}
+            style={{
+              width: "100%",
+              zIndex: 10,
+              borderRadius: "0px",
+              position: "absolute",
+              top: "100%",
+              left: "0",
+            }}
+          >
+            <FlexFull
+              className={`${maxHeight} ${bgSettings} ${menuTextColor} overflow-y-auto  rounded-t-none  transition-500`}
             >
-              <FlexFull
-                className={`${maxHeight} ${bgSettings} ${menuTextColor} overflow-y-auto  rounded-t-none  transition-500`}
+              <VStackFull
+                gap="gap-[0px]"
+                className={`h-fit ${menuTextColor} transition-500 rounded-t-none mainInset`}
               >
-                <VStackFull
-                  gap="gap-[0px]"
-                  className={`h-fit ${menuTextColor} transition-500 rounded-t-none mainInset`}
-                >
-                  {options.map((option, index) => (
-                    <DropDownElement key={index} text={option} />
-                  ))}
-                </VStackFull>
-              </FlexFull>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </VStackFull>
+                {options.map((option, index) => (
+                  <DropDownElement key={index} text={option} />
+                ))}
+              </VStackFull>
+            </FlexFull>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </VStackFull>
   );
 }

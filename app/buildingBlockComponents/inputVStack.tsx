@@ -2,7 +2,7 @@
 import Input from "./input";
 import ValidatedInput from "./validatedInput";
 import VStackFull from "./vStackFull";
-import Text from "./text";
+import DefaultLabel from "./defaultLabel";
 
 interface InputVStackProps {
   isValidated?: boolean;
@@ -20,9 +20,6 @@ interface InputVStackProps {
   defaultValue?: string;
   type?: "text" | "email" | "password" | "number" | "tel" | "url";
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  textSize?: string;
-  textColor?: string;
-  textClassName?: string;
 }
 
 export default function InputVStack({
@@ -40,21 +37,16 @@ export default function InputVStack({
   defaultValue,
   type,
   onChange,
-  textSize = "text-lg",
-  textColor = "text-col-300 textShadow",
-  textClassName,
 }: InputVStackProps) {
   return (
     <VStackFull
       className={`${className}`}
       align="items-start"
       style={style}
-      gap="gap-0.3vh"
+      gap="gap-[0.5vh]"
       tabIndex={-1}
     >
-      <Text className={`${textSize} ${textColor} ${textClassName}`}>
-        {label}
-      </Text>
+      {label && <DefaultLabel label={label} />}
       {isValidated && validationMax ? (
         <ValidatedInput
           autoFocus={autoFocus}
@@ -73,7 +65,7 @@ export default function InputVStack({
           required={isRequired}
           name={name}
           placeholder={placeholder}
-          value={value}
+          // value={value}
           defaultValue={defaultValue}
           type={type}
           onChange={onChange}

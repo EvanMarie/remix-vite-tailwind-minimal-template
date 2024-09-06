@@ -39,6 +39,8 @@ import {
   Wrap,
 } from "~/buildingBlockComponents/mainContainers";
 import AnimatedIconButton from "~/buildingBlockComponents/animatedIconButton";
+import Accordion from "~/buildingBlockComponents/accordion";
+import { FaCubesStacked } from "react-icons/fa6";
 
 interface CustomNavLinkProps {
   to: string;
@@ -50,6 +52,344 @@ interface CustomNavLinkProps {
   useActive?: boolean;
   className?: string;
 }
+
+interface ColoredListItemProps {
+  fileName: string;
+  headingClassName?: string;
+  description: string;
+}
+
+export const ColoredListItem: React.FC<ColoredListItemProps> = ({
+  fileName,
+  headingClassName = "text-col-pink",
+  description,
+}) => {
+  return (
+    <li>
+      <span className={`font-bold ${headingClassName}`}>{fileName}</span> -{" "}
+      {description}
+    </li>
+  );
+};
+
+const mainContainers = [
+  {
+    fileName: "Box",
+    description:
+      "A simple container component that uses basic block-level layout behavior. It acts like a clickable box and allows for various CSS properties like padding, margins, and borders. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "Flex",
+    description:
+      "A flexbox container that arranges its children in a row (horizontal alignment). It distributes space between items based on flex properties, such as justify-content and align-items. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "FlexFull",
+    description:
+      "A full-width version of the Flex component that ensures its contents stretch to fill the entire horizontal space. It uses flexbox layout properties to manage children in a row. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "HStack",
+    description:
+      "A horizontal flexbox stack component that spaces its children evenly in a row. It allows you to specify the gap between items, making it easy to align them horizontally. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "HStackFull",
+    description:
+      "A full-width variant of the HStack component. It arranges its children in a row with customizable spacing (gap), ensuring the children stretch horizontally across the entire width of the container. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "VStack",
+    description:
+      "A vertical flexbox stack component that arranges its children in a column. It allows for vertical spacing (gap) between items, making it ideal for layouts where elements need to be stacked. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "VStackFull",
+    description:
+      "A full-width version of the VStack component. It stacks children vertically (in a column) and stretches to take up the entire width of the container. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "Center",
+    description:
+      "A flexbox container that centers its children both horizontally and vertically. It uses flexbox properties like justify-content and align-items to achieve perfect centering. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "CenterFull",
+    description:
+      "A full-width variant of the Center component. It ensures its children are centered both horizontally and vertically while stretching to the full width of the container. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "Transition",
+    description:
+      "A component used to handle CSS transitions and animations. It controls changes like fade, scale, rotate, and slide effects between component states using Framer Motion. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "TransitionFull",
+    description:
+      "A full-width variant of the Transition component that applies animation transitions like fade, scale, and slide across the full width of the container. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "Wrap",
+    description:
+      "A flexbox container that allows its children to wrap into multiple rows or columns when necessary. Useful for responsive layouts where items need to flow onto new lines when there isn’t enough space. Formed from a motion div, so it accepts animation-related props.",
+  },
+  {
+    fileName: "WrapFull",
+    description:
+      "A full-width variant of the Wrap component. It ensures children wrap and span multiple rows or columns while stretching to take up the full width of the container. Formed from a motion div, so it accepts animation-related props.",
+  },
+];
+
+const componentObjectsOne = [
+  {
+    fileName: "accordion.tsx",
+    description:
+      "A collapsible container that allows sections of content to expand and collapse. The title acts as a toggle button, and the content appears/disappears with a smooth sliding animation. It uses flexbox for the layout of the title and content, and Framer Motion for the transition effects. Useful for displaying information in a compact and interactive manner, with control over default open state, icons, and styling.",
+  },
+  {
+    fileName: "alert.tsx",
+    description:
+      "A container that displays alert messages or notifications, often with different styles for success, error, or warning messages. It likely takes props for the type of alert and dismissibility, allowing the user to close the alert if needed.",
+  },
+  {
+    fileName: "animatedIconButton.tsx",
+    description:
+      "An icon button with built-in animation effects, such as hover or click interactions. Useful for adding a dynamic touch to buttons, making them more visually engaging while allowing users to trigger actions through the button.",
+  },
+  {
+    fileName: "backgroundImageContainer.tsx",
+    description:
+      "A container that sets and styles a background image, covering its child elements. It likely provides control over the image positioning (e.g., cover, contain), repeat behavior, and opacity. This is useful for creating visually appealing sections with background visuals.",
+  },
+  {
+    fileName: "bouncingDots.tsx",
+    description:
+      "A loading indicator that uses animated bouncing dots to show that a process is running in the background. Commonly used when waiting for data or content to load.",
+  },
+  {
+    fileName: "button.tsx",
+    description:
+      "A general button component that can trigger actions. Likely supports different styles (e.g., primary, secondary), sizes, and behaviors, such as submitting forms or opening modals.",
+  },
+  {
+    fileName: "checkBox.tsx",
+    description:
+      "A reusable checkbox component used for form selections. It likely includes custom styling, supports indeterminate states, and is used in forms to allow users to make multiple selections.",
+  },
+  {
+    fileName: "closeButton.tsx",
+    description:
+      "A button, typically represented by an 'X' icon, used to close modals, popovers, or other interactive elements. Often styled to be minimal and positioned in the top-right corner of the container it is meant to close.",
+  },
+  {
+    fileName: "closeTextButton.tsx",
+    description:
+      "A close button that includes both text and an icon, providing a more explicit option for closing dialogs or modals. It enhances accessibility by making it clear what action the button performs.",
+  },
+  {
+    fileName: "codeExample.tsx",
+    description:
+      "A component that renders code examples with possible syntax highlighting. Useful for documentation or tutorials where developers need to see code snippets with appropriate styling for different programming languages.",
+  },
+  {
+    fileName: "counterInput.tsx",
+    description:
+      "An input field with built-in controls for increasing or decreasing a value, often used for setting quantities. It includes buttons for incrementing/decrementing and likely supports input validation for numeric values.",
+  },
+  {
+    fileName: "datePicker.tsx",
+    description:
+      "A user interface component that allows users to pick a date from a calendar view. It likely supports features like minimum/maximum selectable dates and may include options for time selection as well.",
+  },
+  {
+    fileName: "defaultLabel.tsx",
+    description:
+      "A label component used to associate descriptive text with form elements like inputs and checkboxes. It likely ensures consistency in spacing, font sizes, and alignment across the application.",
+  },
+  {
+    fileName: "divider.tsx",
+    description:
+      "A simple horizontal or vertical line used to divide sections of content visually. It helps in creating clear separations between different sections or UI elements.",
+  },
+  {
+    fileName: "dividerText.tsx",
+    description:
+      "A variant of the divider component that includes text. It places a line with a label in between sections of content, useful for visually breaking content into distinct categories or sections.",
+  },
+  {
+    fileName: "drawer.tsx",
+    description:
+      "A sliding panel component that typically appears from the side of the screen. It's used for navigation or settings panels and can be toggled open or closed, often overlaying the main content.",
+  },
+  {
+    fileName: "drawerContent.tsx",
+    description:
+      "The inner content of a drawer component. This component manages the layout of the items inside the drawer and ensures proper alignment and spacing of its children.",
+  },
+  {
+    fileName: "drawerWithButton.tsx",
+    description:
+      "A drawer component that includes a built-in button to open and close it. The button likely toggles the drawer's visibility, providing a simple interaction pattern for users.",
+  },
+  {
+    fileName: "dropDownMenu.tsx",
+    description:
+      "A dropdown menu component that allows users to select options from a list. It typically appears when triggered by a button or icon and can handle various options and actions.",
+  },
+  {
+    fileName: "expandableText.tsx",
+    description:
+      "A text block that can expand or collapse, hiding or revealing more content based on user interaction. Useful for truncating long sections of text with the option to 'read more.'",
+  },
+  {
+    fileName: "headingText.tsx",
+    description:
+      "A component for rendering headers (`h1`, `h2`, etc.) with custom styles. It ensures consistency in typography, spacing, and alignment for section headings across the application.",
+  },
+  {
+    fileName: "hoverMenu.tsx",
+    description:
+      "A menu that becomes visible when the user hovers over a trigger element, such as a button or icon. It's typically used for navigation or context menus where quick access to options is needed without clicks.",
+  },
+  {
+    fileName: "icon.tsx",
+    description:
+      "A reusable component for rendering icons. It supports different sizes and styles and can be used throughout the application for buttons, labels, and other UI elements.",
+  },
+  {
+    fileName: "iconButton.tsx",
+    description:
+      "A button component that contains an icon. Often used for actions like 'save' or 'delete', it focuses on a visual representation of an action rather than text.",
+  },
+  {
+    fileName: "image.tsx",
+    description:
+      "A component for rendering images, likely with support for lazy loading, responsiveness, and different layout styles such as cover or contain.",
+  },
+  {
+    fileName: "input.tsx",
+    description:
+      "A general input component for user input fields, such as text, numbers, or emails. It likely supports validation, styling, and accessibility for use in forms.",
+  },
+  {
+    fileName: "inputDateTime.tsx",
+    description:
+      "A combined date and time picker input that allows users to select both a date and a time. Useful for scheduling applications or forms where precise timestamps are required.",
+  },
+  {
+    fileName: "inputVStack.tsx",
+    description:
+      "A vertical stack layout component specifically for input fields. It manages the alignment and spacing of multiple inputs, ensuring they stack properly with consistent gaps between them.",
+  },
+  {
+    fileName: "mainContainers.tsx",
+    description:
+      "Contains multiple container components that are used to structure different parts of the application. The following components are all contained within this file: ",
+  },
+];
+
+const componentObjectsTwo = [
+  {
+    fileName: "modal.tsx",
+    description:
+      "A full-screen or partial overlay container that displays content on top of the main page, often used for dialogs, forms, or notifications that require user interaction. It blocks interaction with the background content until dismissed and is typically centered with optional dimming of the background. May include animations for appearing and disappearing.",
+  },
+  {
+    fileName: "navContainer.tsx",
+    description:
+      "A flexbox container designed to hold navigation elements like links, buttons, or icons. It manages the layout and alignment of navigation items, ensuring they are displayed correctly in both desktop and mobile views. It likely provides responsive behavior and customizable styles for positioning items horizontally or vertically.",
+  },
+  {
+    fileName: "navLinkIconButton.tsx",
+    description:
+      "A button component designed for use in navigation menus. It contains both an icon and text and is likely styled with flexbox to align these elements side-by-side. Commonly found in sidebars or header navigation bars, providing a visually compact and interactive way to navigate through the application.",
+  },
+  {
+    fileName: "passwordInput.tsx",
+    description:
+      "A specialized input field for password entry, with built-in security features such as masking characters to hide the password from view. May include options for toggling the visibility of the password and built-in validation for common password rules (e.g., minimum length or special characters).",
+  },
+  {
+    fileName: "popover.tsx",
+    description:
+      "A small, floating UI element that appears when a user interacts with a trigger (e.g., clicking a button or hovering). It provides contextual information or additional actions without disrupting the main content flow. Often used for tooltips, action menus, or help bubbles, and can be positioned relative to the trigger element.",
+  },
+  {
+    fileName: "portal.tsx",
+    description:
+      "A component that allows rendering of its children into a DOM node outside of the root application element, commonly used for modals, tooltips, or dropdowns. This approach helps avoid layout issues, especially with elements that need to visually break out of the parent container's boundaries.",
+  },
+  {
+    fileName: "renderParagraphs.tsx",
+    description:
+      "A component for rendering paragraphs of text with consistent spacing, line breaks, and alignment. It ensures that text blocks are formatted correctly, possibly adding extra styling like indentation, font sizes, or justification to fit design requirements.",
+  },
+  {
+    fileName: "siteBackgroundImage.tsx",
+    description:
+      "A container component that sets a background image for the entire site or specific sections. It manages the positioning, size (e.g., cover or contain), and responsiveness of the background image, ensuring that it scales appropriately for different screen sizes without distorting or impacting performance.",
+  },
+  {
+    fileName: "slideInContent.tsx",
+    description:
+      "A component that animates its children to slide into view from a specified direction (e.g., left, right, top, bottom). Often used for revealing hidden content, such as sidebars or modal-like content, with smooth motion transitions that enhance user experience. Likely uses CSS transitions or animation libraries like Framer Motion.",
+  },
+  {
+    fileName: "slider.tsx",
+    description:
+      "A component that allows users to select a value or navigate through a set of items by dragging a handle along a track. It likely includes customizable ranges, steps, and labels, making it suitable for adjusting quantities, selecting prices, or navigating through images in a carousel format.",
+  },
+  {
+    fileName: "spinner.tsx",
+    description:
+      "An animated loading indicator that shows progress or activity is taking place. Commonly displayed during asynchronous actions (like data fetching or form submission) and disappears once the action is complete. Typically implemented with simple CSS animations for smooth and continuous rotation.",
+  },
+  {
+    fileName: "table.tsx",
+    description:
+      "A container for rendering structured data in a grid of rows and columns, supporting features such as sorting, filtering, and pagination. Likely includes customizable headers, cell styling, and responsive design to ensure proper alignment and readability across different devices.",
+  },
+  {
+    fileName: "text.tsx",
+    description:
+      "A general-purpose component for rendering text with specific styles like font size, weight, color, and alignment. Ensures consistent typography across the application and may provide utilities for truncating text, adjusting line height, or handling multi-line text blocks.",
+  },
+  {
+    fileName: "textArea.tsx",
+    description:
+      "A multi-line input field for capturing long-form text input such as comments, descriptions, or notes. Supports features like resizing (both horizontally and vertically), customizable height, and validation for maximum character limits or formatting.",
+  },
+  {
+    fileName: "textAreaVStack.tsx",
+    description:
+      "A vertically stacked layout container designed for organizing text areas and their related labels or messages. It ensures consistent spacing and alignment between these elements, making it easy to manage multi-line inputs within forms or complex UI layouts.",
+  },
+  {
+    fileName: "timePicker.tsx",
+    description:
+      "A specialized input field that provides users with a convenient way to select a specific time (hours and minutes). Often presented as a dropdown or a modal with a clock interface, ensuring accurate and user-friendly time selection for scheduling tasks or events.",
+  },
+  {
+    fileName: "toast.tsx",
+    description:
+      "A small notification component that appears for a brief duration to inform users of success, errors, or other feedback. It typically slides or fades into view and disappears after a set amount of time, providing non-blocking feedback without interrupting the user's workflow.",
+  },
+  {
+    fileName: "toggleSwitch.tsx",
+    description:
+      "A UI component that allows users to toggle between two states (on/off). It often resembles a physical switch and is used for setting preferences or controlling features. The component likely supports different sizes and states, with smooth transitions between them.",
+  },
+  {
+    fileName: "tooltip.tsx",
+    description:
+      "A small, floating label that provides additional context or instructions when the user hovers over or focuses on an element. It disappears once the user moves away, offering a non-intrusive way to add explanations or tips for interface elements.",
+  },
+  {
+    fileName: "validatedInput.tsx",
+    description:
+      "An input field with built-in validation logic, such as checking for required fields, formatting, or length constraints. It likely provides real-time feedback to users, displaying success or error messages based on the input's validity.",
+  },
+];
 
 export function CustomNavLink({
   to,
@@ -197,7 +537,7 @@ export default function Design() {
               </h1>
               <VStackFull
                 gap="gap-[2vh]"
-                className="text-2.3vh textShadow leading-[2.7vh]"
+                className="text-2.3vh textShadow leading-[3vh]"
                 align="items-start"
               >
                 <Text>
@@ -213,7 +553,7 @@ export default function Design() {
                   best way to alter the color scheme with your own colors is to
                   select, for example, the rgba value for{" "}
                   <code className={codeStyles}>colors[100]</code>, use{" "}
-                  <code className={codeStyles}>ctl(cmd) + F</code>, and replace
+                  <code className={codeStyles}>ctl(cmd)+F</code>, and replace
                   all instances of that value in the{" "}
                   <code className={codeStyles}>themeColors</code> object. The
                   repeat the same process for all other colors.
@@ -226,6 +566,60 @@ export default function Design() {
                   here, all beautiful and shiny.{" "}
                 </Text>
               </VStackFull>
+              <VStackFull
+                gap="gap-[2vh]"
+                className="text-2.3vh textShadow leading-[2.7vh]"
+                align="items-start"
+              >
+                <Text>
+                  In the <code className={codeStyles}>buildingBlocks</code>{" "}
+                  directory within the{" "}
+                  <code className={codeStyles}>components</code> directory of
+                  the app, you can find a variety of reusable components that
+                  can be used to build the UI of your application. These
+                  components are designed to be flexible, customizable, and easy
+                  to integrate into your project. Here's a brief overview of
+                  some of the main components available:
+                </Text>
+              </VStackFull>
+
+              <Accordion
+                isDefaultOpen={false}
+                titleText="Building Block Components"
+                titleIcon={FaCubesStacked}
+              >
+                <VStackFull
+                  align="items-start text-2vh leading-[2.4vh]"
+                  gap="gap-1vh"
+                >
+                  {componentObjectsOne.map((component, index) => (
+                    <ColoredListItem
+                      key={index}
+                      fileName={component.fileName}
+                      description={component.description}
+                    />
+                  ))}
+                  <VStackFull
+                    align="items-start pl-3vh md:pl-5vh lg:pl-7vh"
+                    gap="gap-0.5vh"
+                  >
+                    {mainContainers.map((container, index) => (
+                      <ColoredListItem
+                        key={index}
+                        fileName={container.fileName}
+                        description={container.description}
+                      />
+                    ))}
+                  </VStackFull>
+                  {componentObjectsTwo.map((component, index) => (
+                    <ColoredListItem
+                      key={index}
+                      fileName={component.fileName}
+                      description={component.description}
+                    />
+                  ))}
+                </VStackFull>
+              </Accordion>
             </VStackFull>
             <SectionHeading id="colorscheme" heading="Color Scheme" />
             <StyledExampleWrap bg="bg-white">

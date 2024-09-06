@@ -34,6 +34,7 @@ import {
   Box,
   Flex,
   FlexFull,
+  HStackFull,
   TransitionFull,
   VStackFull,
   Wrap,
@@ -41,6 +42,8 @@ import {
 import AnimatedIconButton from "~/buildingBlockComponents/animatedIconButton";
 import Accordion from "~/buildingBlockComponents/accordion";
 import { FaCubesStacked } from "react-icons/fa6";
+import Icon from "~/buildingBlockComponents/icon";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 interface CustomNavLinkProps {
   to: string;
@@ -57,17 +60,24 @@ interface ColoredListItemProps {
   fileName: string;
   headingClassName?: string;
   description: string;
+  isSub?: boolean;
 }
 
 export const ColoredListItem: React.FC<ColoredListItemProps> = ({
   fileName,
   headingClassName = "text-col-pink",
   description,
+  isSub = false,
 }) => {
   return (
     <li>
-      <span className={`font-bold ${headingClassName}`}>{fileName}</span> -{" "}
-      {description}
+      <VStackFull align="items-start">
+        <HStackFull>
+          {isSub && <Icon icon={IoIosArrowRoundForward} />}
+          <span className={`font-bold ${headingClassName}`}>{fileName}</span>
+        </HStackFull>
+        <Text>{description}</Text>
+      </VStackFull>
     </li>
   );
 };
@@ -608,6 +618,7 @@ export default function Design() {
                         key={index}
                         fileName={container.fileName}
                         description={container.description}
+                        isSub
                       />
                     ))}
                   </VStackFull>

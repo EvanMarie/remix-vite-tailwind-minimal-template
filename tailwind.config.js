@@ -1791,6 +1791,9 @@ export default {
         span: {
           fontSize: "inherit",
         },
+        li: {
+          listStyleType: "none",
+        },
       });
     }),
     typographyPlugin,

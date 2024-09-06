@@ -1,5 +1,5 @@
 import { NavLink } from "@remix-run/react";
-import { motion, stagger } from "framer-motion";
+import { motion } from "framer-motion";
 import Icon from "./icon";
 import Text from "./text";
 import { HStack } from "./mainContainers";

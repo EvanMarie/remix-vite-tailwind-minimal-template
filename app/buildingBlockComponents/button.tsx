@@ -16,7 +16,7 @@ export type ButtonType =
   | "smallUnstyled";
 
 // Props for the combined button component
-interface CombinedButtonProps {
+interface ButtonProps {
   className?: string;
   buttonText?: string;
   padding?: string;
@@ -33,7 +33,7 @@ interface CombinedButtonProps {
   width?: string;
   height?: string;
   textStroke?: string;
-  type?: ButtonType;
+  type?: ButtonType | "normal";
   onMouseEnter?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -56,7 +56,7 @@ export default function Button({
   textStroke = "text-stroke-0-900 hover:text-stroke-5-900",
   type = "normal",
   onMouseEnter,
-}: CombinedButtonProps) {
+}: ButtonProps) {
   // Determine the button classes based on type
   const buttonClass =
     type === "normal"
@@ -121,8 +121,8 @@ export default function Button({
       disabled={isDisabled}
       type={htmlType}
       ref={ref}
-      whileHover={{ scale: 1.01, rotate: -1 }}
-      whileTap={{ scale: 0.97, rotate: 1 }}
+      whileHover={{ scale: 1.01, rotate: -0.6 }}
+      whileTap={{ scale: 0.97, rotate: 0.6 }}
       onMouseEnter={onMouseEnter}
     >
       <HStack

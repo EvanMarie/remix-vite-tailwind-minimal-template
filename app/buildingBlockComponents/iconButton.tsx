@@ -7,7 +7,7 @@ import { Flex } from "./mainContainers";
 import { NavLink } from "@remix-run/react";
 
 // Define the type of button
-export type ButtonType =
+export type IconButtonType =
   | "normal"
   | "smallNormal"
   | "largeNormal"
@@ -33,9 +33,9 @@ interface IconButtonProps {
   style?: React.CSSProperties;
   tabIndex?: number;
   onMouseEnter?: MouseEventHandler<HTMLButtonElement>;
-  to?: string; // Optional: If passed, renders as a NavLink
+  to?: string;
   target?: string;
-  type?: ButtonType;
+  type?: IconButtonType;
 }
 
 // Combined IconButton component
@@ -121,7 +121,8 @@ export default function IconButton({
       type={htmlType}
       ref={ref as MutableRefObject<HTMLButtonElement>}
       className={containerClassName}
-      whileTap={{ rotate: 5, scale: 0.8, transition: { duration: 0.3 } }}
+      whileHover={{ scale: 1.01, rotate: -0.6 }}
+      whileTap={{ scale: 0.97, rotate: 0.6 }}
       onMouseEnter={onMouseEnter}
       tabIndex={tabIndex}
     >
@@ -147,7 +148,8 @@ export default function IconButton({
           <motion.div
             className={`flex ${containerClassName}`}
             ref={ref as RefObject<HTMLDivElement>}
-            whileTap={{ rotate: 30, scale: 0.8, transition: { duration: 0.3 } }}
+            whileHover={{ scale: 1.01, rotate: -0.6 }}
+            whileTap={{ scale: 0.97, rotate: 0.6 }}
           >
             {ButtonContent}
           </motion.div>

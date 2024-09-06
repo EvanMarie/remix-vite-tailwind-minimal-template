@@ -1,11 +1,10 @@
 import React, { CSSProperties, ReactElement, useEffect, useState } from "react";
 import { useLocation } from "@remix-run/react";
-import Button from "~/buildingBlockComponents/button";
+import Button, { ButtonType } from "~/buildingBlockComponents/button";
 import { AnimatePresence, motion } from "framer-motion";
 import Portal from "~/buildingBlockComponents/portal";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import { CgCloseR } from "react-icons/cg";
-import { ButtonType } from "./navLinkButton";
 import IconButton from "./iconButton";
 import useEscapeKey from "~/utils/useEscapeKey";
 import { Box, Flex } from "./mainContainers";
@@ -206,10 +205,10 @@ export default function SlideInContent({
       ) : (
         <Button
           onClick={() => setIsMounted(!isMounted)}
-          onMouseEnter={openOnHover ? () => setIsMounted(true) : undefined} // Open on hover if enabled
+          onMouseEnter={openOnHover ? () => setIsMounted(true) : undefined}
           buttonText={isMounted ? openButtonText : closedButtonText}
           iconLeft={isMounted ? openIcon : closedIcon}
-          type={buttonType}
+          type={buttonType || "normal"}
         />
       )}
 

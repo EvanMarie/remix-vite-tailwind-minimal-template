@@ -24,7 +24,6 @@ import {
 import { GoSmiley } from "react-icons/go";
 import { useLocation } from "@remix-run/react";
 import { NavLink } from "react-router-dom";
-import NavIconButton from "~/buildingBlockComponents/navLinkIconButton";
 import Heading from "~/buildingBlockComponents/headingText";
 import Button from "~/buildingBlockComponents/button";
 import IconButton from "~/buildingBlockComponents/iconButton";
@@ -167,7 +166,7 @@ const componentObjectsOne = [
   {
     fileName: "alert.tsx",
     description:
-      "A container that displays alert messages or notifications, often with different styles for success, error, or warning messages. It likely takes props for the type of alert and dismissibility, allowing the user to close the alert if needed.",
+      "A customizable container that displays alert messages or notifications. It props for the type of alert and dismissibility, allowing the user to close the alert or continue with the action which triggered the alert etc.",
   },
   {
     fileName: "animatedIconButton.tsx",
@@ -177,7 +176,7 @@ const componentObjectsOne = [
   {
     fileName: "backgroundImageContainer.tsx",
     description:
-      "A container that sets and styles a background image, covering its child elements. It likely provides control over the image positioning (e.g., cover, contain), repeat behavior, and opacity. This is useful for creating visually appealing sections with background visuals.",
+      "A container that sets and styles a background image, covering its child elements, providing control over the image positioning (e.g., cover, contain), repeat behavior, and opacity. This is useful for creating visually appealing sections with background visuals.",
   },
   {
     fileName: "bouncingDots.tsx",
@@ -187,12 +186,12 @@ const componentObjectsOne = [
   {
     fileName: "button.tsx",
     description:
-      "A general button component that can trigger actions. Likely supports different styles (e.g., primary, secondary), sizes, and behaviors, such as submitting forms or opening modals.",
+      "A general button component that can trigger actions, supports different styles, sizes, and behaviors, such as submitting forms or opening modals.",
   },
   {
     fileName: "checkBox.tsx",
     description:
-      "A reusable checkbox component used for form selections. It likely includes custom styling, supports indeterminate states, and is used in forms to allow users to make multiple selections.",
+      "A reusable checkbox component used for form selections. It includes custom styling, supports indeterminate states, and is used in forms to allow users to make multiple selections.",
   },
   {
     fileName: "closeButton.tsx",
@@ -207,22 +206,22 @@ const componentObjectsOne = [
   {
     fileName: "codeExample.tsx",
     description:
-      "A component that renders code examples with possible syntax highlighting. Useful for documentation or tutorials where developers need to see code snippets with appropriate styling for different programming languages.",
+      "A component that renders code examples with monospace font. This is useful for documentation or tutorials where developers need to see code snippets with appropriate styling for different programming languages.",
   },
   {
     fileName: "counterInput.tsx",
     description:
-      "An input field with built-in controls for increasing or decreasing a value, often used for setting quantities. It includes buttons for incrementing/decrementing and likely supports input validation for numeric values.",
+      "An input field with built-in controls for increasing or decreasing a value, often used for setting quantities. It includes buttons for incrementing/decrementing and supports input validation for numeric values.",
   },
   {
     fileName: "datePicker.tsx",
     description:
-      "A user interface component that allows users to pick a date from a calendar view. It likely supports features like minimum/maximum selectable dates and may include options for time selection as well.",
+      "A user interface component that allows users to pick a date from a calendar view. It supports features like minimum/maximum selectable dates and may include options for time selection as well.",
   },
   {
     fileName: "defaultLabel.tsx",
     description:
-      "A label component used to associate descriptive text with form elements like inputs and checkboxes. It likely ensures consistency in spacing, font sizes, and alignment across the application.",
+      "A label component used to associate descriptive text with form elements like inputs and checkboxes. It ensures consistency in spacing, font sizes, and alignment across the application.",
   },
   {
     fileName: "divider.tsx",
@@ -237,7 +236,7 @@ const componentObjectsOne = [
   {
     fileName: "drawer.tsx",
     description:
-      "A sliding panel component that typically appears from the side of the screen. It's used for navigation or settings panels and can be toggled open or closed, often overlaying the main content.",
+      "A sliding panel component that typically appears from the side of the screen. It's used for navigation or settings panels and can be toggled open or closed, often overlaying the main content. This component has a variety of animation options for opening and closing the drawer. This component's state is managed in the parent component.",
   },
   {
     fileName: "drawerContent.tsx",
@@ -247,12 +246,17 @@ const componentObjectsOne = [
   {
     fileName: "drawerWithButton.tsx",
     description:
-      "A drawer component that includes a built-in button to open and close it. The button likely toggles the drawer's visibility, providing a simple interaction pattern for users.",
+      "A drawer component that includes a built-in button to open and close it. The button toggles the drawer's visibility, providing a simple interaction pattern for users. For this drawer, the open and close states are managed internally.",
   },
   {
     fileName: "dropDownMenu.tsx",
     description:
-      "A dropdown menu component that allows users to select options from a list. It typically appears when triggered by a button or icon and can handle various options and actions.",
+      "A dropdown menu component that allows users to select options from a list. It typically appears when triggered by a mouseover and can handle various options and actions.",
+  },
+  {
+    fileName: "expandableImage.tsx",
+    description:
+      "A component that displays an image with an expand icon, allowing users to open a larger view in a modal. It uses Framer Motion for smooth animations and includes a button to close the modal. Ideal for galleries or image previews.",
   },
   {
     fileName: "expandableText.tsx",
@@ -277,17 +281,17 @@ const componentObjectsOne = [
   {
     fileName: "iconButton.tsx",
     description:
-      "A button component that contains an icon. Often used for actions like 'save' or 'delete', it focuses on a visual representation of an action rather than text.",
+      "A button component that contains an icon. Often used for actions like navigations, 'save' or 'delete', it focuses on a visual representation of an action rather than text.",
   },
   {
     fileName: "image.tsx",
     description:
-      "A component for rendering images, likely with support for lazy loading, responsiveness, and different layout styles such as cover or contain.",
+      "A component for rendering images, with support for lazy loading, responsiveness, and different layout styles such as cover or contain.",
   },
   {
     fileName: "input.tsx",
     description:
-      "A general input component for user input fields, such as text, numbers, or emails. It likely supports validation, styling, and accessibility for use in forms.",
+      "A general input component for user input fields, such as text, numbers, or emails. It supports validation, styling, and accessibility for use in forms.",
   },
   {
     fileName: "inputDateTime.tsx",
@@ -315,12 +319,7 @@ const componentObjectsTwo = [
   {
     fileName: "navContainer.tsx",
     description:
-      "A flexbox container designed to hold navigation elements like links, buttons, or icons. It manages the layout and alignment of navigation items, ensuring they are displayed correctly in both desktop and mobile views. It likely provides responsive behavior and customizable styles for positioning items horizontally or vertically.",
-  },
-  {
-    fileName: "navLinkIconButton.tsx",
-    description:
-      "A button component designed for use in navigation menus. It contains both an icon and text and is likely styled with flexbox to align these elements side-by-side. Commonly found in sidebars or header navigation bars, providing a visually compact and interactive way to navigate through the application.",
+      "A flexbox container designed to hold navigation elements like links, buttons, or icons. It manages the layout and alignment of navigation items, ensuring they are displayed correctly in both desktop and mobile views. It provides responsive behavior and customizable styles for positioning items horizontally or vertically.",
   },
   {
     fileName: "passwordInput.tsx",
@@ -340,7 +339,7 @@ const componentObjectsTwo = [
   {
     fileName: "renderParagraphs.tsx",
     description:
-      "A component for rendering paragraphs of text with consistent spacing, line breaks, and alignment. It ensures that text blocks are formatted correctly, possibly adding extra styling like indentation, font sizes, or justification to fit design requirements.",
+      "A component for rendering paragraphs of text with consistent spacing, line breaks, and alignment. It ensures that text blocks are formatted correctly when rendering text from a database or some other source.",
   },
   {
     fileName: "siteBackgroundImage.tsx",
@@ -350,12 +349,12 @@ const componentObjectsTwo = [
   {
     fileName: "slideInContent.tsx",
     description:
-      "A component that animates its children to slide into view from a specified direction (e.g., left, right, top, bottom). Often used for revealing hidden content, such as sidebars or modal-like content, with smooth motion transitions that enhance user experience. Likely uses CSS transitions or animation libraries like Framer Motion.",
+      "A component that animates its children to slide into view from a specified direction (e.g., left, right, top, bottom). Often used for revealing hidden content, such as sidebars or modal-like content, with smooth motion transitions that enhance user experience. This component uses CSS transitions and animation libraries like Framer Motion.",
   },
   {
     fileName: "slider.tsx",
     description:
-      "A component that allows users to select a value or navigate through a set of items by dragging a handle along a track. It likely includes customizable ranges, steps, and labels, making it suitable for adjusting quantities, selecting prices, or navigating through images in a carousel format.",
+      "A component that allows users to select a value or navigate through a set of items by dragging a handle along a track. this includes customizable ranges, steps, and labels, making it suitable for adjusting quantities, selecting prices, or navigating through images in a carousel format.",
   },
   {
     fileName: "spinner.tsx",
@@ -365,7 +364,7 @@ const componentObjectsTwo = [
   {
     fileName: "table.tsx",
     description:
-      "A container for rendering structured data in a grid of rows and columns, supporting features such as sorting, filtering, and pagination. Likely includes customizable headers, cell styling, and responsive design to ensure proper alignment and readability across different devices.",
+      "A container for rendering structured data in a grid of rows and columns, supporting features such as sorting, filtering, and pagination. This table includes customizable headers, cell styling, and responsive design to ensure proper alignment and readability across different devices.",
   },
   {
     fileName: "text.tsx",
@@ -395,7 +394,7 @@ const componentObjectsTwo = [
   {
     fileName: "toggleSwitch.tsx",
     description:
-      "A UI component that allows users to toggle between two states (on/off). It often resembles a physical switch and is used for setting preferences or controlling features. The component likely supports different sizes and states, with smooth transitions between them.",
+      "A UI component that allows users to toggle between two states (on/off). It often resembles a physical switch and is used for setting preferences or controlling features. The component It supports different sizes and states, with smooth transitions between them.",
   },
   {
     fileName: "tooltip.tsx",
@@ -405,7 +404,7 @@ const componentObjectsTwo = [
   {
     fileName: "validatedInput.tsx",
     description:
-      "An input field with built-in validation logic, such as checking for required fields, formatting, or length constraints. It likely provides real-time feedback to users, displaying success or error messages based on the input's validity.",
+      "An input field with built-in validation logic, such as checking for required fields, formatting, or length constraints. It provides real-time feedback to users, displaying success or error messages based on the input's validity.",
   },
 ];
 
@@ -530,7 +529,7 @@ export default function Design() {
       <FlexFull className="h-full overflow-y-auto justify-center">
         <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser rounded-none">
           <Wrap className="w-full gap-x-[5vh] gap-y-0.5vh justify-around">
-            <NavIconButton icon={HomeIcon} type="smallNormal" to="/" />
+            <IconButton icon={HomeIcon} type="smallNormal" to="/" />
             <CustomNavLink to="#colorscheme" linkText="Colors" useHash />
             <CustomNavLink to="#rgb" linkText="RBG" useHash />
             <CustomNavLink to="#gradients" linkText="Gradients" />
@@ -550,8 +549,8 @@ export default function Design() {
               className="text-col-100 bg-col-800 bg-linear6op75 border-900-md shadowNarrowNormal p-1vh sm:p-2vh md:p-3vh lg:px-5vh xl:px-10vh"
               gap="gap-[2vh]"
             >
-              <h1 className="font-cursive text-col-pink text-stroke-10-900 textGlowXs text-center">
-                Make this theme your own!
+              <h1 className="font-cursive text-col-pink text-stroke-5-200 textGlowXs text-center">
+                Want to customize?
               </h1>
               <VStackFull
                 gap="gap-[2vh]"

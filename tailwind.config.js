@@ -568,28 +568,28 @@ export default {
     extend: {
       colors: { col: themeColors },
       height: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
         }))
       ),
       minHeight: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
         }))
       ),
       maxHeight: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
         }))
       ),
       width: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
@@ -597,7 +597,7 @@ export default {
         }))
       ),
       maxWidth: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
@@ -605,7 +605,7 @@ export default {
         }))
       ),
       minWidth: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
@@ -613,7 +613,7 @@ export default {
         }))
       ),
       maxWidth: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
@@ -629,7 +629,7 @@ export default {
         }))
       ),
       gap: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
@@ -638,7 +638,7 @@ export default {
       ),
       // Add pixels to the spacing scale
       spacing: Object.assign(
-        {},
+        { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
@@ -686,6 +686,7 @@ export default {
       },
       spacing: {
         ...generateVhUnits(),
+        ...generateVwUnits(),
       },
       screens: {
         mobile: "360px",

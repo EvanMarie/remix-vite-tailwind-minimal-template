@@ -132,7 +132,7 @@ export const HStack = React.forwardRef<HTMLDivElement, HStackProps & any>(
       children,
       onClick = () => ({}),
       onKeyDown,
-      gap = "gap-2",
+      gap = "",
       className = "",
       style = {},
       onMouseEnter,
@@ -192,7 +192,7 @@ export const VStack = React.forwardRef<HTMLDivElement, HStackProps & any>(
   (
     {
       children,
-      gap = "gap-2",
+      gap = "",
       className = "",
       style = {},
       align = "items-center",

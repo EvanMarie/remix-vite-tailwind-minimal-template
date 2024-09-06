@@ -1,9 +1,4 @@
-import React, {
-  CSSProperties,
-  MouseEvent,
-  type ReactNode,
-  type RefObject,
-} from "react";
+import React, { CSSProperties, MouseEvent, ReactNode, RefObject } from "react";
 import { motion, Variants } from "framer-motion";
 
 // -------------------------- BOX COMPONENT -------------------------- //
@@ -11,7 +6,7 @@ interface BoxProps {
   children?: ReactNode;
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   ref?: RefObject<HTMLDivElement>;
@@ -64,7 +59,7 @@ interface FlexProps {
   tabIndex?: number;
 }
 
-const Flex = React.forwardRef<HTMLDivElement, FlexProps & any>(
+export const Flex = React.forwardRef<HTMLDivElement, FlexProps & any>(
   (
     {
       children,
@@ -95,17 +90,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps & any>(
 Flex.displayName = "Flex";
 
 // -------------------------- FLEX FULL COMPONENT -------------------------- //
-export const FlexFull = React.forwardRef<
-  HTMLDivElement,
-  {
-    children: React.ReactNode;
-    className?: string;
-    widths?: string;
-    onClick?: () => void;
-    id?: string;
-    style?: React.CSSProperties;
-  } & any // Extend to accept motion props
->(
+export const FlexFull = React.forwardRef<HTMLDivElement, FlexProps & any>(
   (
     { children, className = "", onClick, id, style = {}, ...motionProps },
     ref
@@ -133,7 +118,7 @@ interface HStackProps {
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   onFocus?: () => void;
@@ -181,17 +166,8 @@ export const HStack = React.forwardRef<HTMLDivElement, HStackProps & any>(
 );
 HStack.displayName = "HStack";
 
-// -------------------------- HSTACK FULL -------------------------- //
-export const HStackFull = React.forwardRef<
-  HTMLDivElement,
-  {
-    children: React.ReactNode;
-    className?: string;
-    gap?: string;
-    onClick?: () => void;
-    style?: React.CSSProperties;
-  } & any
->(
+// -------------------------- HSTACK FULL COMPONENT -------------------------- //
+export const HStackFull = React.forwardRef<HTMLDivElement, HStackProps & any>(
   (
     { children, className = "", gap = "", onClick, style = {}, ...motionProps },
     ref
@@ -212,18 +188,7 @@ export const HStackFull = React.forwardRef<
 HStackFull.displayName = "HStackFull";
 
 // -------------------------- VSTACK COMPONENT -------------------------- //
-export const VStack = React.forwardRef<
-  HTMLDivElement,
-  {
-    children?: React.ReactNode;
-    gap?: string;
-    style?: React.CSSProperties;
-    align?: string;
-    className?: string;
-    onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-    tabIndex?: number;
-  } & any
->(
+export const VStack = React.forwardRef<HTMLDivElement, HStackProps & any>(
   (
     {
       children,
@@ -253,19 +218,8 @@ export const VStack = React.forwardRef<
 );
 VStack.displayName = "VStack";
 
-// -------------------------- VSTACK FULL -------------------------- //
-export const VStackFull = React.forwardRef<
-  HTMLDivElement,
-  {
-    children: React.ReactNode;
-    className?: string;
-    gap?: string;
-    style?: React.CSSProperties;
-    onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-    align?: "items-start" | "items-center" | "items-end";
-    tabIndex?: number;
-  } & any
->(
+// -------------------------- VSTACK FULL COMPONENT -------------------------- //
+export const VStackFull = React.forwardRef<HTMLDivElement, HStackProps & any>(
   (
     {
       children,
@@ -297,97 +251,45 @@ export const VStackFull = React.forwardRef<
 VStackFull.displayName = "VStackFull";
 
 // -------------------------- CENTER COMPONENT -------------------------- //
-export const Center = React.forwardRef<
-  HTMLDivElement,
-  {
-    children: React.ReactNode;
-    className?: string;
-    widths?: string;
-    onClick?: () => void;
-    id?: string;
-    style?: React.CSSProperties;
-  } & any
->(({ children, className, onClick, id, style = {}, ...motionProps }, ref) => {
-  return (
-    <Flex
-      className={`justify-center items-center ${className}`}
-      id={id}
-      ref={ref}
-      onClick={onClick}
-      style={{ ...style }}
-      {...motionProps} // Spread motion props
-    >
-      {children}
-    </Flex>
-  );
-});
+export const Center = React.forwardRef<HTMLDivElement, FlexProps & any>(
+  ({ children, className, onClick, id, style = {}, ...motionProps }, ref) => {
+    return (
+      <Flex
+        className={`justify-center items-center ${className}`}
+        id={id}
+        ref={ref}
+        onClick={onClick}
+        style={{ ...style }}
+        {...motionProps} // Spread motion props
+      >
+        {children}
+      </Flex>
+    );
+  }
+);
 Center.displayName = "Center";
 
-// -------------------------- CENTER FULL -------------------------- //
-
-export const CenterFull = React.forwardRef<
-  HTMLDivElement,
-  {
-    children: React.ReactNode;
-    className?: string;
-    widths?: string;
-    onClick?: () => void;
-    id?: string;
-    style?: React.CSSProperties;
-  } & any
->(({ children, className, onClick, id, style = {}, ...motionProps }, ref) => {
-  return (
-    <Flex
-      className={`w-full justify-center items-center ${className}`}
-      id={id}
-      ref={ref}
-      onClick={onClick}
-      style={{ ...style }}
-      {...motionProps} // Spread motion props
-    >
-      {children}
-    </Flex>
-  );
-});
+// -------------------------- CENTER FULL COMPONENT -------------------------- //
+export const CenterFull = React.forwardRef<HTMLDivElement, FlexProps & any>(
+  ({ children, className, onClick, id, style = {}, ...motionProps }, ref) => {
+    return (
+      <Flex
+        className={`w-full justify-center items-center ${className}`}
+        id={id}
+        ref={ref}
+        onClick={onClick}
+        style={{ ...style }}
+        {...motionProps} // Spread motion props
+      >
+        {children}
+      </Flex>
+    );
+  }
+);
 CenterFull.displayName = "CenterFull";
 
-// -------------------------- TRANSITION COMPONENT -------------------------- //
-export type TransitionType =
-  | "fade"
-  | "scale"
-  | "slide"
-  | "rotate"
-  | "flip"
-  | "zoom"
-  | "slideInLeft"
-  | "slideInTopLeft"
-  | "slideInBottomLeft"
-  | "slideInTop"
-  | "slideInTopRight"
-  | "slideInRight"
-  | "slideInBottomRight"
-  | "slideInBottom"
-  | "fadeSlideInRight"
-  | "fadeSlideInLeft"
-  | "fadeSlideInTopLeft"
-  | "fadeSlideInBottomLeft"
-  | "fadeSlideInTop"
-  | "fadeSlideInTopRight"
-  | "fadeSlideInBottomRight"
-  | "fadeSlideInBottom";
-
-interface TransitionProps {
-  children: ReactNode;
-  className?: string;
-  type?: TransitionType;
-  delay?: number;
-  duration?: number;
-  style?: object;
-  onClick?: () => void;
-  key?: string;
-}
-
-const transitionVariants: Record<TransitionType, Variants> = {
+// -------------------------- TRANSITION VARIANTS -------------------------- //
+const transitionVariants: Record<string, Variants> = {
   fade: {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -423,134 +325,105 @@ const transitionVariants: Record<TransitionType, Variants> = {
     animate: { x: 0 },
     exit: { x: "-100%" },
   },
-  slideInTopLeft: {
-    initial: { x: "-100%", y: "-100%" },
-    animate: { x: 0, y: 0 },
-    exit: { x: "-100%", y: "-100%" },
-  },
-  slideInBottomLeft: {
-    initial: { x: "-100%", y: "100%" },
-    animate: { x: 0, y: 0 },
-    exit: { x: "-100%", y: "100%" },
-  },
-  slideInTop: {
-    initial: { y: "-100%" },
-    animate: { y: 0 },
-    exit: { y: "-100%" },
-  },
-  slideInTopRight: {
-    initial: { x: "100%", y: "-100%" },
-    animate: { x: 0, y: 0 },
-    exit: { x: "100%", y: "-100%" },
-  },
   slideInRight: {
     initial: { x: "100%" },
     animate: { x: 0 },
     exit: { x: "100%" },
   },
-  slideInBottomRight: {
-    initial: { x: "100%", y: "100%" },
-    animate: { x: 0, y: 0 },
-    exit: { x: "100%", y: "100%" },
-  },
-  slideInBottom: {
-    initial: { y: "100%" },
-    animate: { y: 0 },
-    exit: { y: "100%" },
-  },
-
   fadeSlideInRight: {
     initial: { x: "50%", opacity: 0 },
     animate: { x: 0, opacity: 1 },
     exit: { x: "50%", opacity: 0 },
   },
-
-  fadeSlideInLeft: {
-    initial: { x: "-50%", opacity: 0 },
-    animate: { x: 0, opacity: 1 },
-    exit: { x: "-50%", opacity: 0 },
-  },
-  fadeSlideInTopLeft: {
-    initial: { x: "-50%", y: "-50%", opacity: 0 },
-    animate: { x: 0, y: 0, opacity: 1 },
-    exit: { x: "-50%", y: "-50%", opacity: 0 },
-  },
-  fadeSlideInBottomLeft: {
-    initial: { x: "-50%", y: "50%", opacity: 0 },
-    animate: { x: 0, y: 0, opacity: 1 },
-    exit: { x: "-50%", y: "50%", opacity: 0 },
-  },
-  fadeSlideInTop: {
-    initial: { y: "-50%", opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: "-50%", opacity: 0 },
-  },
-  fadeSlideInTopRight: {
-    initial: { x: "50%", y: "-50%", opacity: 0 },
-    animate: { x: 0, y: 0, opacity: 1 },
-    exit: { x: "50%", y: "-50%", opacity: 0 },
-  },
-  fadeSlideInBottomRight: {
-    initial: { x: "50%", y: "50%", opacity: 0 },
-    animate: { x: 0, y: 0, opacity: 1 },
-    exit: { x: "50%", y: "50%", opacity: 0 },
-  },
-  fadeSlideInBottom: {
-    initial: { y: "50%", opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: "50%", opacity: 0 },
-  },
 };
 
-export function Transition({
-  children,
-  type = "fade",
-  delay = 0,
-  className = "",
-  style = {},
-  duration = 0.5,
-  onClick,
-  key,
-}: TransitionProps) {
-  return (
-    <motion.div
-      className={`flex justify-center overflow-hidden ${className}`}
-      key={key}
-      variants={transitionVariants[type]}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration, delay }}
-      style={style}
-      onClick={onClick}
-    >
-      {children}
-    </motion.div>
-  );
+// -------------------------- TRANSITION COMPONENT -------------------------- //
+interface TransitionProps {
+  children: ReactNode;
+  className?: string;
+  type?: keyof typeof transitionVariants;
+  delay?: number;
+  duration?: number;
+  style?: CSSProperties;
+  onClick?: () => void;
+  key?: string;
 }
 
-// -------------------------- TRANSITION FULL -------------------------- //
-export function TransitionFull({
-  children,
-  type = "fade",
-  delay = 0,
-  className = "",
-  style = {},
-  duration = 0.5,
-  onClick,
-  key,
-}: TransitionProps) {
-  return (
-    <Transition
-      type={type}
-      delay={delay}
-      className={`w-full ${className}`}
-      style={style}
-      duration={duration}
-      onClick={onClick}
-      key={key}
-    >
-      {children}
-    </Transition>
-  );
+export const Transition = React.forwardRef<
+  HTMLDivElement,
+  TransitionProps & any
+>(
+  (
+    {
+      children,
+      type = "fade",
+      delay = 0,
+      className = "",
+      style = {},
+      duration = 0.5,
+      onClick,
+      key,
+      ...motionProps
+    },
+    ref
+  ) => {
+    return (
+      <motion.div
+        className={`flex justify-center overflow-hidden ${className}`}
+        key={key}
+        variants={transitionVariants[type]}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration, delay }}
+        style={style}
+        onClick={onClick}
+        ref={ref}
+        {...motionProps} // Spread motion props
+      >
+        {children}
+      </motion.div>
+    );
+  }
+);
+Transition.displayName = "Transition";
+
+// -------------------------- WRAP COMPONENT -------------------------- //
+interface WrapProps {
+  children: ReactNode;
+  className?: string;
+  style?: CSSProperties;
 }
+
+export const Wrap = React.forwardRef<HTMLDivElement, WrapProps & any>(
+  ({ children, className = "", style = {}, ...motionProps }, ref) => {
+    return (
+      <motion.div
+        className={`w-full flex flex-wrap ${className}`}
+        style={style}
+        ref={ref}
+        {...motionProps} // Spread motion props
+      >
+        {children}
+      </motion.div>
+    );
+  }
+);
+Wrap.displayName = "Wrap";
+
+// -------------------------- WRAP FULL COMPONENT -------------------------- //
+export const WrapFull = React.forwardRef<HTMLDivElement, WrapProps & any>(
+  ({ children, className = "", style = {}, ...motionProps }, ref) => {
+    return (
+      <Wrap
+        className={`w-full ${className}`}
+        style={style}
+        ref={ref}
+        {...motionProps} // Spread motion props
+      >
+        {children}
+      </Wrap>
+    );
+  }
+);
+WrapFull.displayName = "WrapFull";

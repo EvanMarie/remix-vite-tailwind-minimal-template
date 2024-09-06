@@ -44,6 +44,8 @@ import Accordion from "~/buildingBlockComponents/accordion";
 import { FaCubesStacked } from "react-icons/fa6";
 import Icon from "~/buildingBlockComponents/icon";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { SlStar } from "react-icons/sl";
+import { PiStarBold } from "react-icons/pi";
 
 interface CustomNavLinkProps {
   to: string;
@@ -71,13 +73,19 @@ export const ColoredListItem: React.FC<ColoredListItemProps> = ({
 }) => {
   return (
     <li>
-      <VStackFull align="items-start">
-        <HStackFull>
-          {isSub && <Icon icon={IoIosArrowRoundForward} />}
+      <HStackFull gap="gap-1vh">
+        <Box className={!isSub && "pt-0.5vh"}>
+          <Icon
+            icon={isSub ? IoIosArrowRoundForward : PiStarBold}
+            iconClassName={isSub ? "text-3.5vh" : "text-1.5vh"}
+          />
+        </Box>
+
+        <VStackFull align="items-start" className={isSub && "pt-0.6vh"}>
           <span className={`font-bold ${headingClassName}`}>{fileName}</span>
-        </HStackFull>
-        <Text>{description}</Text>
-      </VStackFull>
+          <Text>{description}</Text>
+        </VStackFull>
+      </HStackFull>
     </li>
   );
 };
@@ -542,7 +550,7 @@ export default function Design() {
               className="text-col-100 bg-col-800 bg-linear6op75 border-900-md shadowNarrowNormal p-1vh sm:p-2vh md:p-3vh lg:px-5vh xl:px-10vh"
               gap="gap-[2vh]"
             >
-              <h1 className="font-cursive text-col-pink text-stroke-10-900 textGlowSm text-center">
+              <h1 className="font-cursive text-col-pink text-stroke-10-900 textGlowXs text-center">
                 Make this theme your own!
               </h1>
               <VStackFull
@@ -551,31 +559,34 @@ export default function Design() {
                 align="items-start"
               >
                 <Text>
-                  To customize the Color Scheme, just go to{" "}
-                  <code className={codeStyles}>tailwind.config.js</code> in the
-                  root directory, and change the rbga colors in the{" "}
-                  <code className={codeStyles}>themeColors</code> object.
+                  To customize the color scheme, navigate to the{" "}
+                  <code className={codeStyles}>tailwind.config.js</code> file in
+                  the root directory, and modify the RGBA values within the{" "}
+                  <code className={codeStyles}>themeColors</code> object. This
+                  is where all the colors used throughout the theme are defined.
                 </Text>
                 <Text>
-                  Because I have 10 levels of opacity of every color defined in{" "}
-                  <code className={codeStyles}>themeColors</code> to make the
-                  various gradients that are available in this template, the
-                  best way to alter the color scheme with your own colors is to
-                  select, for example, the rgba value for{" "}
-                  <code className={codeStyles}>colors[100]</code>, use{" "}
-                  <code className={codeStyles}>ctl(cmd)+F</code>, and replace
-                  all instances of that value in the{" "}
-                  <code className={codeStyles}>themeColors</code> object. The
-                  repeat the same process for all other colors.
+                  Since this theme includes 10 levels of opacity for each color
+                  in the <code className={codeStyles}>themeColors</code> object
+                  to create gradients and other effects, the most efficient way
+                  to replace the color scheme is by selecting the RGBA value for
+                  one color (e.g.,{" "}
+                  <code className={codeStyles}>colors[100]</code>), using{" "}
+                  <code className={codeStyles}>ctl(cmd)+F</code>, and replacing
+                  all instances of that value within the{" "}
+                  <code className={codeStyles}>themeColors</code> object. Repeat
+                  this process for each color you want to update.
                 </Text>
                 <Text>
-                  Once you have replaced every color with your own, copy the
-                  same <code className={codeStyles}>themeColors</code> object
-                  over to <code className={codeStyles}>styles.tsx</code>, where
-                  it is exported as well, and your Color Scheme will render
-                  here, all beautiful and shiny.{" "}
+                  After you've replaced all the colors, copy the updated{" "}
+                  <code className={codeStyles}>themeColors</code> object to the{" "}
+                  <code className={codeStyles}>styles.tsx</code> file, where it
+                  is exported. This ensures that the new color scheme will be
+                  applied consistently across the application, making your
+                  custom theme look polished and complete.
                 </Text>
               </VStackFull>
+
               <VStackFull
                 gap="gap-[2vh]"
                 className="text-2.3vh textShadow leading-[2.7vh]"
@@ -583,13 +594,13 @@ export default function Design() {
               >
                 <Text>
                   In the <code className={codeStyles}>buildingBlocks</code>{" "}
-                  directory within the{" "}
-                  <code className={codeStyles}>components</code> directory of
-                  the app, you can find a variety of reusable components that
-                  can be used to build the UI of your application. These
-                  components are designed to be flexible, customizable, and easy
-                  to integrate into your project. Here's a brief overview of
-                  some of the main components available:
+                  directory, located within the{" "}
+                  <code className={codeStyles}>components</code> folder, you
+                  will find a variety of reusable components to help you build
+                  your application's UI. These components are designed to be
+                  highly flexible, customizable, and easy to integrate into your
+                  project. Below is a brief overview of the main components
+                  available:
                 </Text>
               </VStackFull>
 

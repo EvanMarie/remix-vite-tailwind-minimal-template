@@ -35,7 +35,7 @@ export default function Index() {
       // eslint-disable-next-line react/jsx-no-target-blank
       <NavLink to={to} target={isExternal ? "_blank" : undefined}>
         <HStack
-          className={`px-[1.5vh] py-[0.5vh] transition-400 text-center ${className} items-center group`}
+          className={`px-[1.5vh] py-[0.5vh] transition-400 text-center ${className} items-center group hover:cursor-pointer`}
         >
           {icon && (
             <Icon

@@ -109,7 +109,7 @@ export default function Button({
       : "text-[1.5vh]";
 
   // Combine all classes and include conditional classes for disabled state
-  const combinedClasses = `hover:cursor-pointer ${buttonClass} ${width} ${buttonHeight} ${className} ${padding} font-500 relative transition-400 ${
+  const combinedClasses = `gap-0.7vh hover:cursor-pointer ${buttonClass} ${width} ${buttonHeight} ${className} ${padding} font-500 relative transition-400 ${
     isDisabled ? "opacity-40 cursor-not-allowed" : ""
   }`;
 

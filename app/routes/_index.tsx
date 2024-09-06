@@ -23,7 +23,7 @@ export default function Index() {
     text,
     icon,
     isExternal = false,
-    className = "bg-100-linear3op25 text-col-900 hover:bg-400-diagonal3op75 hover:text-col-100 shadowBroadNormal hover:metallicEdgesMd",
+    className = "bg-col-100 bg-linear3op25 text-col-900 hover:bg-col-300  hover:text-col-900 text-stroke-7-900",
   }: {
     to: string;
     text?: string;
@@ -35,12 +35,12 @@ export default function Index() {
       // eslint-disable-next-line react/jsx-no-target-blank
       <NavLink to={to} target={isExternal ? "_blank" : undefined}>
         <HStack
-          className={`px-[1.5vh] py-[0.5vh] transition-400 text-center ${className} items-center group hover:cursor-pointer`}
+          className={`px-[1.5vh] py-[0.5vh] transition-400 text-center ${className} items-center group hover:cursor-pointer shadowBroadNormal hover:metallicEdgesMd`}
         >
           {icon && (
             <Icon
               icon={icon}
-              iconClassName="text-col-900 text-[2.5vh] group-hover:text-cyan-200 group-hover:transition-400"
+              iconClassName="text-col-900 text-[2.5vh] group-hover:text-col-900 group-hover:transition-400 shadowBroadLoose"
             />
           )}
           <Text>{text}</Text>
@@ -65,7 +65,7 @@ export default function Index() {
             <NavButton
               text="DarkViolet.ai"
               to="https://darkviolet.ai"
-              className="shadowBroadLoose border-970-md bg-gradient-to-r from-[#cd36f4] via-[#ab00ff] to-[#9b82ee] text-col-100 textShadow hover:metallicEdgesXl hover:scale-105"
+              className="bg-gradient-to-r from-[#cd36f4] via-[#ab00ff] to-[#9b82ee] text-col-100 text-stroke-5-100 textShadow hover:metallicEdgesSm hover:scale-101 hover:text-col-100 hover:text-stroke-100"
             />
           </Wrap>
         </VStackFull>

@@ -1,9 +1,9 @@
 import { SpinnerSmall } from "./spinner";
 import Icon from "./icon";
 import { NavLink } from "@remix-run/react";
-import Flex from "./flex";
 import Tooltip, { TooltipPlacement } from "./tooltip";
 import { motion } from "framer-motion";
+import { Flex } from "./mainContainers";
 
 export default function NavIconButton({
   icon,

@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Flex from "./flex";
-import Box from "./box";
-import VStack from "./vStack";
-import HStack from "./hStack";
 import Heading from "./headingText";
 import { CloseButton } from "./closeButton";
+import { Box, Flex, HStack, VStack } from "./mainContainers";
 
 // Placement classes for different positions
 const placementClasses: Record<string, string> = {

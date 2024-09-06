@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "tailwind.css";
-import FlexFull from "./buildingBlockComponents/flexFull";
+import { FlexFull } from "./buildingBlockComponents/mainContainers";
 
 // import { AnimatePresence } from "framer-motion";
 

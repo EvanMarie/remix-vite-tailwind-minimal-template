@@ -1,6 +1,5 @@
-import Flex from "./flex";
 import { ReactNode } from "react";
-import HStackFull from "./hStackFull";
+import { Flex, HStackFull } from "./mainContainers";
 
 interface NavContainerProps {
   children: ReactNode;

@@ -339,7 +339,7 @@ const transitionVariants: Record<string, Variants> = {
 
 // -------------------------- TRANSITION COMPONENT -------------------------- //
 interface TransitionProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   type?: keyof typeof transitionVariants;
   delay?: number;
@@ -387,6 +387,44 @@ export const Transition = React.forwardRef<
   }
 );
 Transition.displayName = "Transition";
+
+// -------------------------- TRANSITION FULL -------------------------- //
+
+export const TransitionFull = React.forwardRef<
+  HTMLDivElement,
+  TransitionProps & any
+>(
+  (
+    {
+      children,
+      type = "fade",
+      delay = 0,
+      className = "",
+      style = {},
+      duration = 0.5,
+      onClick,
+      key,
+      ...motionProps
+    },
+    ref
+  ) => {
+    return (
+      <Transition
+        className={`w-full ${className}`}
+        key={key}
+        type={type}
+        delay={delay}
+        duration={duration}
+        style={style}
+        onClick={onClick}
+        ref={ref}
+        {...motionProps} // Spread motion props
+      >
+        {children}
+      </Transition>
+    );
+  }
+);
 
 // -------------------------- WRAP COMPONENT -------------------------- //
 interface WrapProps {

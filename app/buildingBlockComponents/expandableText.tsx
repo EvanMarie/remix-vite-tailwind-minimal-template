@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Text from "./text";
-import HStackFull from "./hStackFull";
 import IconButton from "./iconButton";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { HStackFull } from "./mainContainers";
 
 export default function ExpandableText({
   text,

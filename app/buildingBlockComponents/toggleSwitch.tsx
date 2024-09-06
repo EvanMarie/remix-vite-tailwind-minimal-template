@@ -1,10 +1,8 @@
-import Flex from "./flex";
-import HStack from "./hStack";
-import VStack from "./vStack";
 import Text from "./text";
 import Icon from "./icon";
 import { CiBellOff, CiBellOn } from "react-icons/ci";
 import { motion } from "framer-motion";
+import { Flex, HStack, VStack } from "./mainContainers";
 
 export default function ToggleSwitch({
   size = "xl",

@@ -6,10 +6,9 @@ import Portal from "~/buildingBlockComponents/portal";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import { CgCloseR } from "react-icons/cg";
 import { ButtonType } from "./navLinkButton";
-import Flex from "./flex";
-import Box from "./box";
 import IconButton from "./iconButton";
 import useEscapeKey from "~/utils/useEscapeKey";
+import { Box, Flex } from "./mainContainers";
 
 type ContentPosition =
   | "topLeft"

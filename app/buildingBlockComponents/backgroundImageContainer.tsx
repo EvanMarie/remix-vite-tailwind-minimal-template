@@ -1,7 +1,6 @@
-import Box from "./box";
 import Image from "./image";
-import Flex from "./flex";
 import { imageFallback } from "styles";
+import { Box, Flex } from "./mainContainers";
 
 interface BackgroundImageProps {
   image?: string;

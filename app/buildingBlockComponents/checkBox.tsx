@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import { useState } from "react";
 import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
-import HStack from "./hStack";
-import Box from "./box";
 import Text from "./text";
+import { Box, HStack } from "./mainContainers";
 
 interface CheckboxProps {
   label: string;

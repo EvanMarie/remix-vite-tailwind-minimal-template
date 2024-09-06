@@ -1,12 +1,14 @@
 import type { MetaFunction } from "@remix-run/node";
 import { NavLink } from "@remix-run/react";
-import FlexFull from "~/buildingBlockComponents/flexFull";
-import HStack from "~/buildingBlockComponents/hStack";
 import Icon from "~/buildingBlockComponents/icon";
+import {
+  FlexFull,
+  HStack,
+  TransitionFull,
+  VStackFull,
+  Wrap,
+} from "~/buildingBlockComponents/mainContainers";
 import Text from "~/buildingBlockComponents/text";
-import Transition from "~/buildingBlockComponents/transition";
-import VStackFull from "~/buildingBlockComponents/vStackFull";
-import Wrap from "~/buildingBlockComponents/wrap";
 
 export const meta: MetaFunction = () => {
   return [
@@ -48,7 +50,7 @@ export default function Index() {
   }
   return (
     <FlexFull>
-      <Transition className="w-full h-full justify-center items-center">
+      <TransitionFull className="w-full h-full justify-center items-center">
         <VStackFull className="text-center xxl:w-[60vw]" gap="gap-[4vh]">
           <Text className="font-cursive boldTextGlow text-col-900 text-stroke-8-900 text-[4.5vh] md:text-[8vh] lg:text-[10vh] text-center animate-slideInRight">
             Remix, Vite, & Tailwind
@@ -67,7 +69,7 @@ export default function Index() {
             />
           </Wrap>
         </VStackFull>
-      </Transition>
+      </TransitionFull>
     </FlexFull>
   );
 }

@@ -1,14 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Button from "./button";
-import HStack from "./hStack";
-import Flex from "./flex";
-import VStack from "./vStack";
-import VStackFull from "./vStackFull";
 import Image from "./image";
-import Box from "./box";
 import Text from "./text";
 import Heading from "./headingText";
+import { Box, Flex, HStack, VStack, VStackFull } from "./mainContainers";
 
 const sizeClasses = {
   xs: "w-full h-1/3 md:w-64 md:h-1/2",

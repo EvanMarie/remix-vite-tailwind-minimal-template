@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "./datePicker";
 import TimePicker from "./timePicker";
-import HStack from "./hStack";
+import { HStack } from "./mainContainers";
 
 interface InputDateTimeProps {
   dueDate?: Date;

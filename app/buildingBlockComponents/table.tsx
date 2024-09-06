@@ -1,12 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo, useState } from "react";
 import { FaCircleChevronDown, FaCircleChevronUp } from "react-icons/fa6";
 import { GrUnsorted } from "react-icons/gr";
 import IconButton from "./iconButton";
 import { CloseIcon } from "styles";
-import HStackFull from "./hStackFull";
 import Icon from "./icon";
+import { HStackFull } from "./mainContainers";
 
 const tableStyles = "w-full bg-col-950 max-w-full";
 const headerStyles = "text-center font-bold bg-100-linear3op50 text-col-900";

@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-import HStackFull from "./hStackFull";
-import VStackFull from "./vStackFull";
 import useEscapeKey from "~/utils/useEscapeKey";
 import Text from "./text";
 import { LuClock2 } from "react-icons/lu";
 import Modal from "./modal";
-import VStack from "./vStack";
-import Box from "./box";
 import Icon from "./icon";
 import { CloseButton } from "./closeButton";
+import { Box, HStackFull, VStack, VStackFull } from "./mainContainers";
 
 interface TimePickerProps {
   selectedTime: Date;

@@ -19,7 +19,7 @@ export default function Text({
     display: noOfLines ? "-webkit-box" : undefined,
     WebkitLineClamp: noOfLines,
     WebkitBoxOrient: noOfLines ? "vertical" : undefined,
-    ...style, // Merge the style prop with the inline styles
+    ...style,
   };
 
   return (

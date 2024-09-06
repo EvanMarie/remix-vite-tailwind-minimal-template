@@ -24,18 +24,20 @@ import {
 import { GoSmiley } from "react-icons/go";
 import { useLocation } from "@remix-run/react";
 import { NavLink } from "react-router-dom";
-import Transition from "~/buildingBlockComponents/transition";
-import FlexFull from "~/buildingBlockComponents/flexFull";
-import Wrap from "~/buildingBlockComponents/wrap";
 import NavIconButton from "~/buildingBlockComponents/navLinkIconButton";
-import VStackFull from "~/buildingBlockComponents/vStackFull";
 import Heading from "~/buildingBlockComponents/headingText";
 import Button from "~/buildingBlockComponents/button";
 import IconButton from "~/buildingBlockComponents/iconButton";
-import Box from "~/buildingBlockComponents/box";
 import Text from "~/buildingBlockComponents/text";
-import Flex from "~/buildingBlockComponents/flex";
 import { HomeIcon } from "styles";
+import {
+  Box,
+  Flex,
+  FlexFull,
+  TransitionFull,
+  VStackFull,
+  Wrap,
+} from "~/buildingBlockComponents/mainContainers";
 
 interface CustomNavLinkProps {
   to: string;
@@ -78,7 +80,7 @@ export function SectionHeading({
       <div id={id} className="h-[5.5vh] xl:h-[3.5vh] text-transparent">
         This
       </div>
-      <Flex className="w-full justify-center pt-[2vh] pb-[1vh]">
+      <FlexFull className="justify-center pt-[2vh] pb-[1vh]">
         <Heading
           color="text-white text-stroke-9-100"
           shadow="textShadow"
@@ -86,7 +88,7 @@ export function SectionHeading({
           layout="text-insane-loose"
           className="px-[2vh]"
         />
-      </Flex>
+      </FlexFull>
     </>
   );
 }
@@ -165,7 +167,7 @@ export default function Design() {
   }
 
   return (
-    <Transition className="w-full h-full justify-center overflow-y-auto">
+    <TransitionFull className="h-full justify-center overflow-y-auto">
       <FlexFull className="h-full overflow-y-auto justify-center">
         <FlexFull className="fixed top-0 left-0 p-[1vh] bg-col-200 z-10 shadowWideLooser rounded-none">
           <Wrap className="w-full gap-x-[5vh] gap-y-0.5vh justify-around">
@@ -518,6 +520,6 @@ export default function Design() {
           </VStackFull>
         </VStackFull>
       </FlexFull>
-    </Transition>
+    </TransitionFull>
   );
 }

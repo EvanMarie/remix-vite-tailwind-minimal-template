@@ -2,16 +2,12 @@ import { useState } from "react";
 
 import { ArrowLeftIcon, ArrowRightIcon, CalendarIcon, CloseIcon } from "styles";
 import useEscapeKey from "~/utils/useEscapeKey";
-import FlexFull from "./flexFull";
 import Text from "./text";
 import Modal from "./modal";
-import Flex from "./flex";
 import Icon from "./icon";
-import Box from "./box";
-import VStack from "./vStack";
 import IconButton from "./iconButton";
-import HStackFull from "./hStackFull";
 import Button from "./button";
+import { Box, Flex, FlexFull, HStackFull, VStack } from "./mainContainers";
 
 interface CalendarProps {
   selectedDate: Date;

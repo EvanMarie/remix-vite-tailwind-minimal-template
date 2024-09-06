@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import Input from "./input";
 import ValidatedInput from "./validatedInput";
-import VStackFull from "./vStackFull";
 import DefaultLabel from "./defaultLabel";
+import { VStackFull } from "./mainContainers";
 
 interface InputVStackProps {
   isValidated?: boolean;

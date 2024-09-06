@@ -1,13 +1,10 @@
 import { Dispatch, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Flex from "./flex";
 import Icon from "./icon";
 import { BiChevronDown } from "react-icons/bi";
-import HStackFull from "./hStackFull";
 import Text from "./text";
-import VStackFull from "./vStackFull";
-import FlexFull from "./flexFull";
 import DefaultLabel from "./defaultLabel";
+import { Flex, FlexFull, HStackFull, VStackFull } from "./mainContainers";
 
 export default function DropDownMenu({
   options,

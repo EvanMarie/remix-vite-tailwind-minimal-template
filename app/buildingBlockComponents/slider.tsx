@@ -1,13 +1,10 @@
 // app/components/Slider.tsx
 import React from "react";
-import HStack from "./hStack";
 import Text from "./text";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
 import IconButton from "./iconButton";
-import FlexFull from "./flexFull";
-import HStackFull from "./hStackFull";
 import RoundToDecimal from "~/utils/useRoundToDecimal";
-import Center from "./center";
+import { Center, FlexFull, HStack, HStackFull } from "./mainContainers";
 
 interface SliderProps {
   label?: string;

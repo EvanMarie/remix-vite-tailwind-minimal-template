@@ -1,9 +1,7 @@
 import React from "react";
 import TextArea from "./textArea";
-import VStack from "./vStack";
-import Heading from "./headingText";
-import Text from "./text";
 import DefaultLabel from "./defaultLabel";
+import { VStack } from "./mainContainers";
 
 // Update the onChange type to be more generic
 interface TextAreaVStackProps {

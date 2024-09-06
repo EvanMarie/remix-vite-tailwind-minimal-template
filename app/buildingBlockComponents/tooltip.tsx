@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Transition from "./transition";
+import { Transition } from "./mainContainers";
 
 export type TooltipPlacement =
   | "top"

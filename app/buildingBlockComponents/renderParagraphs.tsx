@@ -1,6 +1,5 @@
-import Flex from "./flex";
+import { Flex, VStack } from "./mainContainers";
 import Text from "./text";
-import VStack from "./vStack";
 
 interface RenderParagraphsProps {
   textItem?: string | number | readonly string[] | undefined;

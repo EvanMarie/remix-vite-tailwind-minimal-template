@@ -1,7 +1,6 @@
-import Box from "./box";
 import { CloseButton } from "./closeButton";
 import { CloseTextButton } from "./closeTextButton";
-import Flex from "./flex";
+import { Box, Flex } from "./mainContainers";
 
 export default function DrawerContent({
   showTopButton,

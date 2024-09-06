@@ -2,14 +2,10 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "@remix-run/react";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
-import Flex from "./flex";
-import HStack from "./hStack";
 import Text from "./text";
 import Icon from "./icon";
-import FlexFull from "./flexFull";
-import VStackFull from "./vStackFull";
-import VStack from "./vStack";
 import DefaultLabel from "./defaultLabel";
+import { Flex, FlexFull, HStack, VStack, VStackFull } from "./mainContainers";
 
 export default function HoverMenu({
   children,

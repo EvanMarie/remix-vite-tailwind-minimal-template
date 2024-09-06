@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Flex from "./flex";
 import { motion } from "framer-motion";
 import Text from "./text";
+import { Flex } from "./mainContainers";
 
 export const useToast = () => {
   const [isToastVisible, setIsToastVisible] = useState(false);

@@ -1,5 +1,5 @@
 import Divider from "./divider";
-import HStackFull from "./hStackFull";
+import { HStackFull } from "./mainContainers";
 import Text from "./text";
 
 export default function DividerText({

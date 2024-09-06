@@ -1,5 +1,4 @@
-import Center from "~/buildingBlockComponents/center";
-import FlexFull from "~/buildingBlockComponents/flexFull";
+import { Center, FlexFull } from "~/buildingBlockComponents/mainContainers";
 
 export default function Test() {
   return (

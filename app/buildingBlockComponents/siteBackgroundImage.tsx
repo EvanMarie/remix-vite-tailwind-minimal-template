@@ -1,4 +1,4 @@
-import Flex from "./flex";
+import { Flex } from "./mainContainers";
 
 export default function SiteBackgroundImage({
   children,

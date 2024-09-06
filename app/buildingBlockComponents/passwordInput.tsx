@@ -1,12 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import Input from "./input";
-import HStack from "./hStack";
-import Box from "./box";
 import IconButton from "./iconButton";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import VStack from "./vStack";
-import Heading from "./headingText";
 import Text from "./text";
+import { Box, HStack, VStack } from "./mainContainers";
 
 interface PasswordInputProps {
   name?: string;

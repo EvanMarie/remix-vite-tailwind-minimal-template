@@ -1,44 +1,28 @@
-import { MouseEventHandler } from "react";
-import HStack from "./hStack";
-import FlexFull from "./flexFull";
+import { MouseEventHandler, MutableRefObject } from "react";
 import Icon from "./icon";
 import { motion } from "framer-motion";
 import Text from "./text";
+import { NavLink } from "@remix-run/react";
 import BouncingDots from "./bouncingDots";
+import { FlexFull, HStack } from "./mainContainers";
 
+// Define the type of button
 export type ButtonType =
   | "normal"
   | "smallNormal"
-  | "largeNormal"
   | "negative"
   | "smallNegative"
-  | "largeNegative"
   | "unstyled"
-  | "smallUnstyled"
-  | "largeUnstyled";
+  | "smallUnstyled";
 
-export default function Button({
-  className,
-  buttonText = "",
-  padding = "px-[1vh] py-[0px]",
-  onClick,
-  iconLeft,
-  iconRight,
-  ref,
-  htmlType = "button",
-  iconStyle,
-  isLoading,
-  isDisabled,
-  type = "normal",
-  width = "w-fit",
-  height,
-  textStroke = "text-stroke-0-900 hover:text-stroke-5-900",
-  onMouseEnter,
-}: {
+// Props for the combined button component
+interface CombinedButtonProps {
   className?: string;
   buttonText?: string;
   padding?: string;
-  ref?: React.MutableRefObject<HTMLButtonElement | null>;
+  to?: string; // Optional, if present will render a NavLink
+  target?: string;
+  ref?: MutableRefObject<HTMLButtonElement | null>;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   iconLeft?: React.ComponentType<{ className?: string }>;
   iconRight?: React.ComponentType<{ className?: string }>;
@@ -51,7 +35,29 @@ export default function Button({
   textStroke?: string;
   type?: ButtonType;
   onMouseEnter?: MouseEventHandler<HTMLButtonElement>;
-}) {
+}
+
+export default function Button({
+  className,
+  buttonText = "",
+  padding = "px-[1vh] py-[0px]",
+  to, // Optional: If passed, will render a NavLink
+  target,
+  ref,
+  onClick,
+  iconLeft,
+  iconRight,
+  iconStyle,
+  isLoading,
+  isDisabled,
+  htmlType = "button",
+  width = "w-fit",
+  height,
+  textStroke = "text-stroke-0-900 hover:text-stroke-5-900",
+  type = "normal",
+  onMouseEnter,
+}: CombinedButtonProps) {
+  // Determine the button classes based on type
   const buttonClass =
     type === "normal"
       ? "normalButtonStyles"
@@ -65,6 +71,7 @@ export default function Button({
       ? "unstyledButtonStyles"
       : "smallUnstyledButtonStyles";
 
+  // Set button height based on type
   const buttonHeight = height
     ? height
     : type === "normal"
@@ -75,10 +82,9 @@ export default function Button({
     ? "h-[3.5vh]"
     : type === "smallNegative"
     ? "h-[2.6vh]"
-    : type === "unstyled"
-    ? "h-[3.5vh]"
     : "h-[2.6vh]";
 
+  // Set icon size based on type
   const displayIconSize =
     type === "normal"
       ? "text-[2.5vh]"
@@ -88,10 +94,9 @@ export default function Button({
       ? "text-[2.3vh]"
       : type === "smallNegative"
       ? "text-[1.7vh]"
-      : type === "unstyled"
-      ? "text-[2.3vh]"
       : "text-[1.7vh]";
 
+  // Set font size based on type
   const fontSize =
     type === "normal"
       ? "text-[2.1vh]"
@@ -101,8 +106,6 @@ export default function Button({
       ? "text-[2.1vh]"
       : type === "smallNegative"
       ? "text-[1.5vh]"
-      : type === "unstyled"
-      ? "text-[2.1vh]"
       : "text-[1.5vh]";
 
   // Combine all classes and include conditional classes for disabled state
@@ -110,7 +113,8 @@ export default function Button({
     isDisabled ? "opacity-40 cursor-not-allowed" : ""
   }`;
 
-  return (
+  // Render the button as either a NavLink or a normal button based on the "to" prop
+  const ButtonContent = (
     <motion.button
       className="hover:cursor-pointer"
       onClick={!isDisabled ? onClick : undefined}
@@ -128,14 +132,11 @@ export default function Button({
             "background-color 0.4s ease-in-out, color 0.4s ease-in-out, border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, text-shadow 0.4s ease-in-out",
         }}
       >
-        {isLoading &&
-          buttonText !== "" &&
-          type !== "unstyled" &&
-          type !== "smallUnstyled" && (
-            <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10">
-              <BouncingDots dotCount={3} color="white" dotSize={7} speed="3s" />
-            </FlexFull>
-          )}
+        {isLoading && buttonText !== "" && type !== "unstyled" && (
+          <FlexFull className="absolute top-0 left-0 h-full justify-center items-center z-10">
+            <BouncingDots dotCount={3} color="white" dotSize={7} speed="3s" />
+          </FlexFull>
+        )}
 
         {iconLeft && (
           <Icon
@@ -154,5 +155,14 @@ export default function Button({
         )}
       </HStack>
     </motion.button>
+  );
+
+  // If the "to" prop is present, return the NavLink; otherwise, return the standard button
+  return to ? (
+    <NavLink to={to} target={target}>
+      {ButtonContent}
+    </NavLink>
+  ) : (
+    ButtonContent
   );
 }

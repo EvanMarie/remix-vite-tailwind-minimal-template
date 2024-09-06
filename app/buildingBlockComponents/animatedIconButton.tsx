@@ -14,7 +14,7 @@ export default function AnimatedIconButton({
   isActive,
   iconClassName = "text-[2.5vh]",
   iconRotation = "group-hover:rotate-90",
-  className = `h-[3.5vh] px-[1vh] text-[1.5vh] md:text-[2vh]`,
+  dimensionsClassName = `h-[3.5vh] px-[1vh] text-[1.5vh] md:text-[2vh]`,
 }: {
   link?: string;
   onClick?: () => void;
@@ -25,8 +25,10 @@ export default function AnimatedIconButton({
   iconRotation?: string;
   text: string;
   isActive?: boolean;
-  className?: string;
+  dimensionsClassName?: string;
 }) {
+  const defaultStyles =
+    "bg-col-800 hover:bg-col-700 bg-gradient-to-br from-col-130 via-col-230 to-col-130 text-col-offWhite subtleTextShadow shadowNarrowTight";
   return (
     <>
       {link ? (
@@ -42,7 +44,7 @@ export default function AnimatedIconButton({
             }}
           >
             <HStack
-              className={` hover:cursor-pointer  ${className} items-center`}
+              className={` hover:cursor-pointer gap-0.6vh ${dimensionsClassName} ${defaultStyles} items-center`}
               gap="gap-[0.4vh]"
             >
               {icon && (
@@ -72,7 +74,7 @@ export default function AnimatedIconButton({
           type={type}
         >
           <HStack
-            className={` hover:cursor-pointer  ${className} items-center`}
+            className={` hover:cursor-pointer  gap-0.6vh ${dimensionsClassName} ${defaultStyles}  items-center`}
           >
             {icon && (
               <Icon

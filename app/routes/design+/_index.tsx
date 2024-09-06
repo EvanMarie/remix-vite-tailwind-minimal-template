@@ -38,6 +38,7 @@ import {
   VStackFull,
   Wrap,
 } from "~/buildingBlockComponents/mainContainers";
+import AnimatedIconButton from "~/buildingBlockComponents/animatedIconButton";
 
 interface CustomNavLinkProps {
   to: string;
@@ -437,6 +438,7 @@ export default function Design() {
               <IconButton type="smallNegative" icon={GoSmiley} />
               <IconButton type="unstyled" icon={GoSmiley} />
               <IconButton type="smallUnstyled" icon={GoSmiley} />
+              <AnimatedIconButton icon={GoSmiley} text="Animated Button" />
             </StyledExampleWrap>
           </VStackFull>
           <VStackFull>

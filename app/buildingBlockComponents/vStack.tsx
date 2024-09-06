@@ -30,7 +30,7 @@ const VStack = React.forwardRef<HTMLDivElement, VStackProps>(
         onClick={onClick}
         className={`flex flex-col ${align} ${gap} ${className}`}
         ref={ref}
-        style={{ ...style, fontSize: "inherit" }}
+        style={{ ...style }}
       >
         {children}
       </div>

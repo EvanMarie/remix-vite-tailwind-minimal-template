@@ -17,7 +17,7 @@ export default function HStackFull({
     <HStack
       className={`w-full ${gap} ${className}`}
       onClick={onClick}
-      style={{ ...style, fontSize: "inherit" }}
+      style={{ ...style }}
     >
       {children}
     </HStack>

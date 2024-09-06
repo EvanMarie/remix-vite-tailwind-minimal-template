@@ -18,7 +18,7 @@ const FlexFull = React.forwardRef<
       id={id}
       ref={ref}
       onClick={onClick}
-      style={{ ...style, fontSize: "inherit" }}
+      style={{ ...style }}
     >
       {children}
     </Flex>

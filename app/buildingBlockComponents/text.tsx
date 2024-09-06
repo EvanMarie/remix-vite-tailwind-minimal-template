@@ -14,7 +14,6 @@ export default function Text({
   style = {},
 }: TextProps) {
   const inlineStyles: React.CSSProperties = {
-    fontSize: "inherit",
     overflow: noOfLines ? "hidden" : undefined,
     textOverflow: noOfLines ? "ellipsis" : undefined,
     display: noOfLines ? "-webkit-box" : undefined,

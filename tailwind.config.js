@@ -779,8 +779,17 @@ export default {
         standoutTextShadow: "0.3vh 0.3vh 0.4vh rgba(0, 0, 0, 0.9)",
         textFog:
           "0 0 0.5vh #000, 0 0 1vh #000, 0 0 1.5vh #000, 0 0 1vh #000, 0 0 3vh #000, 0 0 4vh #575757, 0 0 5.5vh #5E5E5E, 0 0 7.5vh #000, 0.2vh 0.2vh 0.2vh rgba(0,0,0,0);",
-        textGlow:
+        textGlowXs:
+          "#00FFFF 0px 0px 0.1vh, #00FFFF 0px 0px 0.2vh, #FFF 0px 0px 0.3vh, rgb(224, 219, 253) 0px 0px 0.2vh, rgb(224, 219, 253) 0px 0px 0.2vh, 0.15vh 0.05vh 0.1vh rgba(0,0,0,0);",
+        textGlowSm:
+          "#00FFFF 0px 0px 0.2vh, #00FFFF 0px 0px 0.4vh, #FFF 0px 0px 0.6vh, rgb(224, 219, 253) 0px 0px 0.4vh, rgb(224, 219, 253) 0px 0px 0.4vh, 0.3vh 0.1vh 0.2vh rgba(0,0,0,0);",
+        textGlowMd:
+          "#00FFFF 0px 0px 0.3vh, #00FFFF 0px 0px 0.6vh, #FFF 0px 0px 0.9vh, rgb(224, 219, 253) 0px 0px 0.6vh, rgb(224, 219, 253) 0px 0px 0.6vh, 0.45vh 0.15vh 0.3vh rgba(0,0,0,0);",
+        textGlowLg:
+          "#00FFFF 0px 0px 0.4vh, #00FFFF 0px 0px 0.8vh, #FFF 0px 0px 1.2vh, rgb(224, 219, 253) 0px 0px 0.8vh, rgb(224, 219, 253) 0px 0px 0.8vh, 0.6vh 0.16vh 0.6vh rgba(0,0,0,0);",
+        textGlowXl:
           "#00FFFF 0px 0px 0.5vh, #00FFFF 0px 0px 1vh, #FFF 0px 0px 1.5vh, rgb(224, 219, 253) 0px 0px 1vh, rgb(224, 219, 253) 0px 0px 1vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
+
         boldText:
           "#000 0.05vh 0.05vh 0.05vh, black 0px 0px 0.5vh,  #FFF 0px 0px 0.2vh, #FFF 0px 0px 0.3vh, #FFF 0px 0px 1.2vh, #FFF 0px 0px 0.4vh, #FFF 0px 0px 0.5vh, 0.8vh 0.2vh 0.6vh rgba(0,0,0,0);",
         boldTextGlow:

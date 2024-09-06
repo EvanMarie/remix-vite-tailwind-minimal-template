@@ -54,7 +54,7 @@ interface CustomNavLinkProps {
 export function CustomNavLink({
   to,
   linkText,
-  textClassName = "text-col-800 text-stroke-6-800 hover:textGlow hover:transition-300",
+  textClassName = "text-col-800 text-stroke-9-800 hover:textGlow hover:transition-300",
   className,
 }: CustomNavLinkProps) {
   const hash = useLocation().hash;
@@ -166,7 +166,7 @@ export default function Design() {
       </Flex>
     );
   }
-
+  const codeStyles = "text-col-400 textShadow";
   return (
     <TransitionFull className="h-full justify-center overflow-y-auto">
       <FlexFull className="h-full overflow-y-auto justify-center">
@@ -187,7 +187,46 @@ export default function Design() {
           </Wrap>
         </FlexFull>
         <VStackFull className="h-fit px-[2vh] py-1vh" gap="gap-[2vh]">
-          <VStackFull gap="gap-[1vh]">
+          <VStackFull gap="gap-[1vh]" className="pt-13vh sm:pt-10vh">
+            <VStackFull
+              className="text-col-100 bg-col-800 bg-linear6op75 border-900-md shadowNarrowNormal p-1vh sm:p-2vh md:p-3vh lg:px-5vh xl:px-10vh"
+              gap="gap-[2vh]"
+            >
+              <h1 className="font-cursive text-col-pink text-stroke-10-900 textGlowSm text-center">
+                Make this theme your own!
+              </h1>
+              <VStackFull
+                gap="gap-[2vh]"
+                className="text-2.3vh textShadow leading-[2.7vh]"
+                align="items-start"
+              >
+                <Text>
+                  To customize the Color Scheme, just go to{" "}
+                  <code className={codeStyles}>tailwind.config.js</code> in the
+                  root directory, and change the rbga colors in the{" "}
+                  <code className={codeStyles}>themeColors</code> object.
+                </Text>
+                <Text>
+                  Because I have 10 levels of opacity of every color defined in{" "}
+                  <code className={codeStyles}>themeColors</code> to make the
+                  various gradients that are available in this template, the
+                  best way to alter the color scheme with your own colors is to
+                  select, for example, the rgba value for{" "}
+                  <code className={codeStyles}>colors[100]</code>, use{" "}
+                  <code className={codeStyles}>ctl(cmd) + F</code>, and replace
+                  all instances of that value in the{" "}
+                  <code className={codeStyles}>themeColors</code> object. The
+                  repeat the same process for all other colors.
+                </Text>
+                <Text>
+                  Once you have replaced every color with your own, copy the
+                  same <code className={codeStyles}>themeColors</code> object
+                  over to <code className={codeStyles}>styles.tsx</code>, where
+                  it is exported as well, and your Color Scheme will render
+                  here, all beautiful and shiny.{" "}
+                </Text>
+              </VStackFull>
+            </VStackFull>
             <SectionHeading id="colorscheme" heading="Color Scheme" />
             <StyledExampleWrap bg="bg-white">
               {allColors.map((color: string, index: number) => (

@@ -59,7 +59,10 @@ export default function Accordion({
             onClick={() => setIsOpen(!isOpen)}
           >
             <HStackFull className="rounded-none justify-between hover:cursor-pointer items-center">
-              <HStack className="items-center" gap="gap-1vh">
+              <HStack
+                className="items-center hover:cursor-pointer"
+                gap="gap-1vh"
+              >
                 {titleIcon && (
                   <Icon iconClassName={iconClassName} icon={titleIcon} />
                 )}

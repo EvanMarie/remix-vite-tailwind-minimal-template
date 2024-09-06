@@ -28,7 +28,7 @@ export default function AnimatedIconButton({
   dimensionsClassName?: string;
 }) {
   const defaultStyles =
-    "bg-col-800 hover:bg-col-700 bg-gradient-to-br from-col-130 via-col-230 to-col-130 text-col-offWhite subtleTextShadow shadowNarrowTight";
+    "bg-col-800 hover:bg-col-700 bg-gradient-to-br from-col-130 via-col-230 to-col-130 text-col-white subtleTextShadow shadowNarrowTight";
   return (
     <>
       {link ? (

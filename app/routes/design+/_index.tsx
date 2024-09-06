@@ -460,7 +460,7 @@ export default function Design() {
               <StyledExampleWrap bg="bg-col-100">
                 {shadowsLightBack.map((shadow) => (
                   <Box className={`${shadow} bg-col-500`} key={shadow}>
-                    <Text className="p-[1vh]">{shadow}</Text>
+                    <Text className="p-1vh text-col-900">{shadow}</Text>
                   </Box>
                 ))}
               </StyledExampleWrap>
@@ -477,7 +477,7 @@ export default function Design() {
               {textExamples.map((textExample, index) => (
                 <Box
                   key={index}
-                  className="bg-col-500 h-fit text-col-100 shadowNarrowNormal px-[1vh]"
+                  className="bg-col-500 h-fit text-col-900 shadowNarrowNormal px-[1vh]"
                 >
                   <Text className={`${textExample} `}>{textExample}</Text>
                 </Box>

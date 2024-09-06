@@ -1,3 +1,6 @@
+import { themeColors } from "styles";
+import theme from "tailwind.config";
+
 export const textShadows = [
   "lightTextShadow",
   "textShadow",
@@ -842,16 +845,17 @@ export const allColors = [
 
 // REQUIRES THEME ADJUSTMENTS
 export const allColorsRGB = [
-  { code: "bg-col-100", rgb: "rgb(228, 237, 245)" },
-  { code: "bg-col-200", rgb: "rgb(208, 226, 242)" },
-  { code: "bg-col-300", rgb: "rgb(217, 181, 173)" },
-  { code: "bg-col-400", rgb: "rgb(167, 189, 217)" },
-  { code: "bg-col-500", rgb: "rgb(84, 123, 171)" },
-  { code: "bg-col-600", rgb: "rgb(97, 116, 140)" },
-  { code: "bg-col-700", rgb: "rgb(41, 60, 84)" },
-  { code: "bg-col-800", rgb: "rgb(1, 42, 94)" },
-  { code: "bg-col-900", rgb: "rgb(1, 17, 38)" },
+  { code: "bg-col-100", rgb: themeColors[100] },
+  { code: "bg-col-200", rgb: themeColors["200"] },
+  { code: "bg-col-300", rgb: themeColors["300"] },
+  { code: "bg-col-400", rgb: themeColors["400"] },
+  { code: "bg-col-500", rgb: themeColors["500"] },
+  { code: "bg-col-600", rgb: themeColors["600"] },
+  { code: "bg-col-700", rgb: themeColors["700"] },
+  { code: "bg-col-800", rgb: themeColors["800"] },
+  { code: "bg-col-900", rgb: themeColors["900"] },
 ];
+
 export const colors100 = [
   "bg-col-100",
   "bg-col-110",
@@ -864,6 +868,7 @@ export const colors100 = [
   "bg-col-180",
   "bg-col-190",
 ];
+
 export const colors200 = [
   "bg-col-200",
   "bg-col-210",

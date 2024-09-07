@@ -120,7 +120,7 @@ You can customize each component through props or by modifying the pre-configure
 ## Customizing the Theme
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-2.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - customizing</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-2.webp" alt="Customizing" width="800" /> <p><em>Figure 2: Remix, Vite, & Tailwind - A Project Launchpad - customizing</em></p> </div> </div>
 <br>
 
 ### Color Scheme
@@ -147,7 +147,7 @@ After updating the color scheme, make sure to copy the modified `themeColors` ob
 ---
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-3.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - building block components</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-3.webp" alt="building block components" width="800" /> <p><em>Figure 3: Remix, Vite, & Tailwind - A Project Launchpad - building block components</em></p> </div> </div>
 <br>
 
 ## Building Blocks Overview
@@ -163,7 +163,7 @@ To use these components, simply import them into your project and customize as n
 ---
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-4.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - colors</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-4.webp" alt="colors" width="800" /> <p><em>Figure 4: Remix, Vite, & Tailwind - A Project Launchpad - colors</em></p> </div> </div>
 <br>
 
 ## Responsive Design
@@ -179,7 +179,7 @@ For example:
 ---
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-5.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - complex backgrounds</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-5.webp" alt="complex backgrounds" width="800" /> <p><em>Figure 5: Remix, Vite, & Tailwind - A Project Launchpad - complex backgrounds</em></p> </div> </div>
 <br>
 
 ## Animations
@@ -201,7 +201,7 @@ Example:
 ---
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-6.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - buttons, transitions, and text shadows</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-6.webp" alt="buttons, transitions, and text shadows" width="800" /> <p><em>Figure 6: Remix, Vite, & Tailwind - A Project Launchpad - buttons, transitions, and text shadows</em></p> </div> </div>
 <br>
 
 ## Deployment
@@ -223,7 +223,7 @@ This will output a production-ready version of your project in the `dist/` folde
 ---
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-7.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - text strokes</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-7.webp" alt="text strokes" width="800" /> <p><em>Figure 7: Remix, Vite, & Tailwind - A Project Launchpad - text strokes</em></p> </div> </div>
 <br>
 
 ## Conclusion
@@ -233,7 +233,7 @@ This **Remix-Vite-Tailwind** template provides a highly customizable, modular fo
 ---
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-8.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - box shadows and text sizes</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-8.webp" alt="box shadows and text sizes" width="800" /> <p><em>Figure 8: Remix, Vite, & Tailwind - A Project Launchpad - box shadows and text sizes</em></p> </div> </div>
 <br>
 
 ## License
@@ -243,7 +243,7 @@ This project is licensed under the MIT License.
 ---
 
 <br>
-<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-9.webp" alt="Splash Screen" width="800" /> <p><em>Figure 1: Remix, Vite, & Tailwind - A Project Launchpad - more background options</em></p> </div> </div>
+<div style="display: flex; justify-content: center; width: 100%;"> <div style="text-align: center;"> <img src="https://mhejreuxaxxodkdlfcoq.supabase.co/storage/v1/render/image/public/darkVioletPublic/various/minimal-template/minimal-template-9.webp" alt="more background options" width="800" /> <p><em>Figure 9: Remix, Vite, & Tailwind - A Project Launchpad - more background options</em></p> </div> </div>
 <br>
 
 ## Questions or Issues?

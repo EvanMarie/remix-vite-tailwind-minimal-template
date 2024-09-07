@@ -32,7 +32,7 @@ To use this template, you can quickly set up a new project using the following c
 1. Open your terminal and run:
 
    ```bash
-   npx create-remix@latest --template https://github.com/EvanMarie/minimal-template
+   npx create-remix@latest --template https://github.com/EvanMarie/remix-vite-tailwind-minimal-template
    ```
 
 2. Follow the prompts to set up your project (choose TypeScript/JavaScript, project name, etc.).

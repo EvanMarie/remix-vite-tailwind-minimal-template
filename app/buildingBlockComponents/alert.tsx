@@ -1,17 +1,24 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "./button";
 import Image from "./image";
 import Text from "./text";
-import Heading from "./headingText";
-import { Box, Flex, HStack, VStack, VStackFull } from "./mainContainers";
+import Portal from "./portal";
+import {
+  Box,
+  Flex,
+  FlexFull,
+  HStack,
+  VStack,
+  VStackFull,
+} from "./mainContainers";
 
 const sizeClasses = {
-  xs: "w-full h-1/3 md:w-64 md:h-1/2",
-  sm: "w-full h-1/2 md:w-1/2 md:h-1/2 lg:w-1/3 lg:h-1/3 xl:w-[28vw] xl:h-[28vh]",
-  md: "w-full h-1/2 md:w-1/3 md:h-45vh",
-  lg: "w-full h-2/3 md:w-1/2 md:h-2/3",
-  xl: "w-full h-5/6 md:w-2/3 md:h-2/3",
+  xs: "w-[40svh] h-fit max-h-25vh sm:w-[50svh] sm:max-h-30vh",
+  sm: "w-98vw h-1/3 max-h-30vh sm:w-[55svh] sm:max-h-35vh",
+  md: "w-98vw h-1/2 max-h-35vh sm:w-[60svh] sm:max-h-40vh",
+  lg: "w-98vw h-2/3 max-h-40vh sm:w-[65svh] sm:max-h-45vh",
+  xl: "w-98vw h-3/4 max-h-45vh sm:w-[70svh] sm:max-h-50vh",
   full: "w-full h-full",
 };
 
@@ -35,6 +42,7 @@ interface AlertProps {
   className?: string;
   alertImage?: string;
   imageClassName?: string;
+  bodyTextClassName?: string;
 }
 
 export default function Alert({
@@ -47,13 +55,13 @@ export default function Alert({
   confirmButtonText,
   cancelButtonText,
   flexDirection = "flex-col",
-  size,
-  bodyWidth = "w-[30vh]",
-  bodyTextSize = "text-[3vh]",
-  bodyClassName = "",
+  size = "sm",
+  bodyWidth = "w-full",
+  bodyClassName = "text-lg",
   alertDimensions,
   className,
   alertImage,
+  bodyTextClassName = "text-lg",
   imageClassName = "w-75% h-auto sm:w-60%",
 }: AlertProps) {
   const sizeClass = size ? sizeClasses[size] || undefined : "";
@@ -61,8 +69,9 @@ export default function Alert({
 
   // Animation variants for Framer Motion
   const backdropVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
+    hidden: { opacity: 0, scale: 0 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
+    exit: { opacity: 0, scale: 0, transition: { duration: 0.3 } },
   };
 
   const modalVariants = {
@@ -75,70 +84,78 @@ export default function Alert({
   };
 
   return (
-    <motion.div
-      className={`fixed inset-0 overflow-hidden defaultOverlayBlur defaultOverlayColor flex justify-center items-center rounded-none`}
-      variants={backdropVariants}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-      style={{ zIndex: 1000 }}
-    >
-      <motion.div
-        className={`bg-radial4 shadowNarrowNormal ${sizeClass} ${alertDimensions} ${className}`}
-        variants={{ ...modalVariants, ...modalExitVariants }}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        <VStack className="w-full h-full justify-between ">
-          {/* Header */}
-          <HStack className="w-full items-center bg-col-990 rounded-b-none p-[1vh] gap-2 md:gap-[1vw]">
-            <Heading
-              color="text-col-100"
-              className="text-stroke-5-100"
-              shadow="textFog"
-              text={title}
-              layout="text-insane-normal"
-            />
-          </HStack>
-
-          <HStack
-            className={`w-full h-full justify-between text-col-900 `}
-            gap="gap-[0px]"
-          >
-            <VStackFull className="h-full justify-center p-[1vh] items-center">
-              <Flex
-                className={`w-full h-full justify-center items-center flex-grow-1 gap-[1vh] ${bodyWidth} ${flexDirection} ${bodyClassName} `}
+    <>
+      <Portal>
+        {isAlertOpen && (
+          <AnimatePresence>
+            <motion.div
+              className={`fixed inset-0 overflow-hidden defaultOverlayBlur defaultOverlay flex justify-center items-center rounded-none`}
+              variants={backdropVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              style={{ zIndex: 1000 }}
+            >
+              <motion.div
+                className={`bg-radial4 shadowNarrowNormal ${sizeClass} ${alertDimensions} ${className} text-xl text-col-900 text-stroke-8-900`}
+                variants={{ ...modalVariants, ...modalExitVariants }}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
               >
-                {alertImage && (
-                  <Box className={imageClassName}>
-                    <Image
-                      src={alertImage}
-                      alt="alert image"
-                      className="w-full h-full"
-                    />
-                  </Box>
-                )}
-                <Text className={`${bodyTextSize} lightTextShadow`}>
-                  {body}
-                </Text>
-              </Flex>
-              <HStack className="justify-end gap-[2vw] p-[1vh]">
-                <Button
-                  ref={cancelRef}
-                  onClick={onClose}
-                  buttonText={cancelButtonText}
-                />
-                <Button
-                  onClick={onConfirmClick}
-                  type="negative"
-                  buttonText={confirmButtonText}
-                />
-              </HStack>
-            </VStackFull>
-          </HStack>
-        </VStack>
-      </motion.div>
-    </motion.div>
+                <VStack
+                  className="w-full h-full justify-between "
+                  style={{ fontSize: "inherit" }}
+                >
+                  {/* Header */}
+                  <HStack className="w-full items-center rounded-b-none p-[1vh] gap-2 md:gap-[1vw]">
+                    <Text>{title}</Text>
+                  </HStack>
+
+                  <HStack
+                    className={`w-full h-full justify-between text-col-900 `}
+                    gap="gap-[0px]"
+                    style={{ fontSize: "inherit" }}
+                  >
+                    <VStackFull className="h-full justify-center p-[1vh] items-center">
+                      <Flex
+                        className={`w-full h-full justify-center items-center flex-grow-1 gap-[1vh] ${bodyWidth} ${flexDirection} ${bodyClassName} `}
+                      >
+                        {alertImage && (
+                          <Box className={imageClassName}>
+                            <Image
+                              src={alertImage}
+                              alt="alert image"
+                              className="w-full h-full"
+                            />
+                          </Box>
+                        )}
+                        <FlexFull className="py-1vh px-2vh">
+                          <Text className={bodyTextClassName}>{body}</Text>
+                        </FlexFull>
+                      </Flex>
+                      <HStack className="justify-end gap-[2vw] p-[1vh]">
+                        <Button
+                          ref={cancelRef}
+                          onClick={onClose}
+                          className="text-stroke-1-100"
+                          buttonText={cancelButtonText}
+                        />
+                        <Button
+                          onClick={onConfirmClick}
+                          type="negative"
+                          className="text-stroke-1-100 hover:text-col-900 hover:text-stroke-5-900"
+                          buttonText={confirmButtonText}
+                        />
+                      </HStack>
+                    </VStackFull>
+                  </HStack>
+                </VStack>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        )}{" "}
+      </Portal>
+    </>
   );
 }

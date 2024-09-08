@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import Input from "./input";
 import IconButton from "./iconButton";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import Text from "./text";
+import DefaultLabel from "./defaultLabel";
 import { Box, HStack, VStack } from "./mainContainers";
 
 interface PasswordInputProps {
@@ -26,8 +26,8 @@ export default function PasswordInput({
   newPassword = false,
   confirmNewPassword = false,
   onChange,
-  textSize = "text-lg",
-  textColor = "text-col-300 textShadow",
+  textSize,
+  textColor,
   textClassName,
 }: PasswordInputProps) {
   const [show, setShow] = useState(false);
@@ -53,9 +53,11 @@ export default function PasswordInput({
 
   return (
     <VStack gap="gap-0.3vh" align="start" className={`w-full`} tabIndex={-1}>
-      <Text className={`${textSize} ${textColor} ${textClassName}`}>
-        password
-      </Text>
+      <DefaultLabel
+        label={confirm ? "confirm password" : "password"}
+        textClassName={`${textSize} ${textColor} ${textClassName}`}
+      />
+
       <HStack className="w-full relative" gap="gap-0" tabIndex={-1}>
         <Box className="relative w-full" tabIndex={-1}>
           <Input

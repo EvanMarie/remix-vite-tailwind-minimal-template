@@ -51,7 +51,7 @@ export default function IconButton({
   label,
   tooltipPlacement = "bottom",
   style,
-  tabIndex,
+  tabIndex = -1,
   onMouseEnter,
   to, // Optional: If passed, renders as a NavLink
   target,

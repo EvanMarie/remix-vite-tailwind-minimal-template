@@ -428,7 +428,7 @@ export const TransitionFull = React.forwardRef<
 
 // -------------------------- WRAP COMPONENT -------------------------- //
 interface WrapProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   style?: CSSProperties;
 }

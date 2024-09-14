@@ -290,6 +290,521 @@ CenterFull.displayName = "CenterFull";
 
 // -------------------------- TRANSITION VARIANTS -------------------------- //
 const transitionVariants: Record<string, Variants> = {
+  slide: {
+    initial: { x: "-100vw" },
+    animate: { x: 0 },
+    exit: { x: "-100%" },
+  },
+  slideHalf: {
+    initial: { x: "-50vw" },
+    animate: { x: 0 },
+    exit: { x: "-50%" },
+  },
+  slideInLeft: {
+    initial: { x: "-100vw" },
+    animate: { x: 0 },
+    exit: { x: "-100%" },
+  },
+  slideInLeftHalf: {
+    initial: { x: "-50vw" },
+    animate: { x: 0 },
+    exit: { x: "-50%" },
+  },
+  slideInTopLeft: {
+    initial: { x: "-100vw", y: "-100vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-100%", y: "-100%" },
+  },
+  slideInTopLeftHalf: {
+    initial: { x: "-50vw", y: "-50vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-50%", y: "-50%" },
+  },
+  slideInBottomLeft: {
+    initial: { x: "-100vw", y: "100vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-100%", y: "100%" },
+  },
+  slideInBottomLeftHalf: {
+    initial: { x: "-50vw", y: "50vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-50%", y: "50%" },
+  },
+  slideInTop: {
+    initial: { y: "-100vh" },
+    animate: { y: 0 },
+    exit: { y: "-100vh" },
+  },
+  slideInTopHalf: {
+    initial: { y: "-50vh" },
+    animate: { y: 0 },
+    exit: { y: "-50vh" },
+  },
+  slideInTopRight: {
+    initial: { x: "100vw", y: "-100vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "100vw", y: "-100vh" },
+  },
+  slideInTopRightHalf: {
+    initial: { x: "50vw", y: "-50vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "50vw", y: "-50vh" },
+  },
+  slideInRight: {
+    initial: { x: "100vw" },
+    animate: { x: 0 },
+    exit: { x: "100vw" },
+  },
+  slideInRightHalf: {
+    initial: { x: "50vw" },
+    animate: { x: 0 },
+    exit: { x: "50vw" },
+  },
+  slideInBottomRight: {
+    initial: { x: "100vw", y: "100vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "100vw", y: "100vh" },
+  },
+  slideInBottomRightHalf: {
+    initial: { x: "50vw", y: "50vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "50vw", y: "50vh" },
+  },
+  slideInBottom: {
+    initial: { y: "100vh" },
+    animate: { y: 0 },
+    exit: { y: "100vh" },
+  },
+  slideInBottomHalf: {
+    initial: { y: "50vh" },
+    animate: { y: 0 },
+    exit: { y: "50vh" },
+  },
+  fadeSlideInRight: {
+    initial: { x: "100vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "100vw", opacity: 0 },
+  },
+  fadeSlideInRightHalf: {
+    initial: { x: "50vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "50vw", opacity: 0 },
+  },
+  fadeSlideInLeft: {
+    initial: { x: "-100vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-100vw", opacity: 0 },
+  },
+  fadeSlideInLeftHalf: {
+    initial: { x: "-50vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-50vw", opacity: 0 },
+  },
+  fadeSlideInTopLeft: {
+    initial: { x: "-100vw", y: "-100vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-100vw", y: "-100vh", opacity: 0 },
+  },
+  fadeSlideInTopLeftHalf: {
+    initial: { x: "-50vw", y: "-50vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-50vw", y: "-50vh", opacity: 0 },
+  },
+  fadeSlideInBottomLeft: {
+    initial: { x: "-100vw", y: "100vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-100vw", y: "100vh", opacity: 0 },
+  },
+  fadeSlideInBottomLeftHalf: {
+    initial: { x: "-50vw", y: "50vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-50vw", y: "50vh", opacity: 0 },
+  },
+  fadeSlideInTop: {
+    initial: { y: "-100vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "-100vh", opacity: 0 },
+  },
+  fadeSlideInTopHalf: {
+    initial: { y: "-50vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "-50vh", opacity: 0 },
+  },
+  fadeSlideInTopRight: {
+    initial: { x: "100vw", y: "-100vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "100vw", y: "-100vh", opacity: 0 },
+  },
+  fadeSlideInTopRightHalf: {
+    initial: { x: "50vw", y: "-50vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "50vw", y: "-50vh", opacity: 0 },
+  },
+  fadeSlideInBottomRight: {
+    initial: { x: "100vw", y: "100vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "100vw", y: "100vh", opacity: 0 },
+  },
+  fadeSlideInBottomRightHalf: {
+    initial: { x: "50vw", y: "50vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "50vw", y: "50vh", opacity: 0 },
+  },
+  fadeSlideInBottom: {
+    initial: { y: "100vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "100vh", opacity: 0 },
+  },
+  fadeSlideInBottomHalf: {
+    initial: { y: "50vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "50vh", opacity: 0 },
+  },
+  slideThird: {
+    initial: { x: "-33vw" },
+    animate: { x: 0 },
+    exit: { x: "-33%" },
+  },
+  slideInLeftThird: {
+    initial: { x: "-33vw" },
+    animate: { x: 0 },
+    exit: { x: "-33%" },
+  },
+  slideInTopLeftThird: {
+    initial: { x: "-33vw", y: "-33vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-33%", y: "-33%" },
+  },
+  slideInBottomLeftThird: {
+    initial: { x: "-33vw", y: "33vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-33%", y: "33%" },
+  },
+  slideInTopThird: {
+    initial: { y: "-33vh" },
+    animate: { y: 0 },
+    exit: { y: "-33vh" },
+  },
+  slideInTopRightThird: {
+    initial: { x: "33vw", y: "-33vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "33vw", y: "-33vh" },
+  },
+  slideInRightThird: {
+    initial: { x: "33vw" },
+    animate: { x: 0 },
+    exit: { x: "33vw" },
+  },
+  slideInBottomRightThird: {
+    initial: { x: "33vw", y: "33vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "33vw", y: "33vh" },
+  },
+  slideInBottomThird: {
+    initial: { y: "33vh" },
+    animate: { y: 0 },
+    exit: { y: "33vh" },
+  },
+  fadeSlideInRightThird: {
+    initial: { x: "33vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "33vw", opacity: 0 },
+  },
+  fadeSlideInLeftThird: {
+    initial: { x: "-33vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-33vw", opacity: 0 },
+  },
+  fadeSlideInTopLeftThird: {
+    initial: { x: "-33vw", y: "-33vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-33vw", y: "-33vh", opacity: 0 },
+  },
+  fadeSlideInBottomLeftThird: {
+    initial: { x: "-33vw", y: "33vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-33vw", y: "33vh", opacity: 0 },
+  },
+  fadeSlideInTopThird: {
+    initial: { y: "-33vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "-33vh", opacity: 0 },
+  },
+  fadeSlideInTopRightThird: {
+    initial: { x: "33vw", y: "-33vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "33vw", y: "-33vh", opacity: 0 },
+  },
+  fadeSlideInBottomRightThird: {
+    initial: { x: "33vw", y: "33vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "33vw", y: "33vh", opacity: 0 },
+  },
+  fadeSlideInBottomThird: {
+    initial: { y: "33vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "33vh", opacity: 0 },
+  },
+  slideQuarter: {
+    initial: { x: "-25vw" },
+    animate: { x: 0 },
+    exit: { x: "-25%" },
+  },
+  slideInLeftQuarter: {
+    initial: { x: "-25vw" },
+    animate: { x: 0 },
+    exit: { x: "-25%" },
+  },
+  slideInTopLeftQuarter: {
+    initial: { x: "-25vw", y: "-25vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-25%", y: "-25%" },
+  },
+  slideInBottomLeftQuarter: {
+    initial: { x: "-25vw", y: "25vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-25%", y: "25%" },
+  },
+  slideInTopQuarter: {
+    initial: { y: "-25vh" },
+    animate: { y: 0 },
+    exit: { y: "-25vh" },
+  },
+  slideInTopRightQuarter: {
+    initial: { x: "25vw", y: "-25vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "25vw", y: "-25vh" },
+  },
+  slideInRightQuarter: {
+    initial: { x: "25vw" },
+    animate: { x: 0 },
+    exit: { x: "25vw" },
+  },
+  slideInBottomRightQuarter: {
+    initial: { x: "25vw", y: "25vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "25vw", y: "25vh" },
+  },
+  slideInBottomQuarter: {
+    initial: { y: "25vh" },
+    animate: { y: 0 },
+    exit: { y: "25vh" },
+  },
+  fadeSlideInRightQuarter: {
+    initial: { x: "25vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "25vw", opacity: 0 },
+  },
+  fadeSlideInLeftQuarter: {
+    initial: { x: "-25vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-25vw", opacity: 0 },
+  },
+  fadeSlideInTopLeftQuarter: {
+    initial: { x: "-25vw", y: "-25vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-25vw", y: "-25vh", opacity: 0 },
+  },
+  fadeSlideInBottomLeftQuarter: {
+    initial: { x: "-25vw", y: "25vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-25vw", y: "25vh", opacity: 0 },
+  },
+  fadeSlideInTopQuarter: {
+    initial: { y: "-25vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "-25vh", opacity: 0 },
+  },
+  fadeSlideInTopRightQuarter: {
+    initial: { x: "25vw", y: "-25vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "25vw", y: "-25vh", opacity: 0 },
+  },
+  fadeSlideInBottomRightQuarter: {
+    initial: { x: "25vw", y: "25vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "25vw", y: "25vh", opacity: 0 },
+  },
+  fadeSlideInBottomQuarter: {
+    initial: { y: "25vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "25vh", opacity: 0 },
+  },
+  slideTwoThirds: {
+    initial: { x: "-66vw" },
+    animate: { x: 0 },
+    exit: { x: "-66%" },
+  },
+  slideInLeftTwoThirds: {
+    initial: { x: "-66vw" },
+    animate: { x: 0 },
+    exit: { x: "-66%" },
+  },
+  slideInTopLeftTwoThirds: {
+    initial: { x: "-66vw", y: "-66vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-66%", y: "-66%" },
+  },
+  slideInBottomLeftTwoThirds: {
+    initial: { x: "-66vw", y: "66vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-66%", y: "66%" },
+  },
+  slideInTopTwoThirds: {
+    initial: { y: "-66vh" },
+    animate: { y: 0 },
+    exit: { y: "-66vh" },
+  },
+  slideInTopRightTwoThirds: {
+    initial: { x: "66vw", y: "-66vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "66vw", y: "-66vh" },
+  },
+  slideInRightTwoThirds: {
+    initial: { x: "66vw" },
+    animate: { x: 0 },
+    exit: { x: "66vw" },
+  },
+  slideInBottomRightTwoThirds: {
+    initial: { x: "66vw", y: "66vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "66vw", y: "66vh" },
+  },
+  slideInBottomTwoThirds: {
+    initial: { y: "66vh" },
+    animate: { y: 0 },
+    exit: { y: "66vh" },
+  },
+  fadeSlideInRightTwoThirds: {
+    initial: { x: "66vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "66vw", opacity: 0 },
+  },
+  fadeSlideInLeftTwoThirds: {
+    initial: { x: "-66vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-66vw", opacity: 0 },
+  },
+  fadeSlideInTopLeftTwoThirds: {
+    initial: { x: "-66vw", y: "-66vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-66vw", y: "-66vh", opacity: 0 },
+  },
+  fadeSlideInBottomLeftTwoThirds: {
+    initial: { x: "-66vw", y: "66vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-66vw", y: "66vh", opacity: 0 },
+  },
+  fadeSlideInTopTwoThirds: {
+    initial: { y: "-66vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "-66vh", opacity: 0 },
+  },
+  fadeSlideInTopRightTwoThirds: {
+    initial: { x: "66vw", y: "-66vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "66vw", y: "-66vh", opacity: 0 },
+  },
+  fadeSlideInBottomRightTwoThirds: {
+    initial: { x: "66vw", y: "66vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "66vw", y: "66vh", opacity: 0 },
+  },
+  fadeSlideInBottomTwoThirds: {
+    initial: { y: "66vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "66vh", opacity: 0 },
+  },
+  slideThreeQuarters: {
+    initial: { x: "-75vw" },
+    animate: { x: 0 },
+    exit: { x: "-75%" },
+  },
+  slideInLeftThreeQuarters: {
+    initial: { x: "-75vw" },
+    animate: { x: 0 },
+    exit: { x: "-75%" },
+  },
+  slideInTopLeftThreeQuarters: {
+    initial: { x: "-75vw", y: "-75vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-75%", y: "-75%" },
+  },
+  slideInBottomLeftThreeQuarters: {
+    initial: { x: "-75vw", y: "75vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "-75%", y: "75%" },
+  },
+  slideInTopThreeQuarters: {
+    initial: { y: "-75vh" },
+    animate: { y: 0 },
+    exit: { y: "-75vh" },
+  },
+  slideInTopRightThreeQuarters: {
+    initial: { x: "75vw", y: "-75vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "75vw", y: "-75vh" },
+  },
+  slideInRightThreeQuarters: {
+    initial: { x: "75vw" },
+    animate: { x: 0 },
+    exit: { x: "75vw" },
+  },
+  slideInBottomRightThreeQuarters: {
+    initial: { x: "75vw", y: "75vh" },
+    animate: { x: 0, y: 0 },
+    exit: { x: "75vw", y: "75vh" },
+  },
+  slideInBottomThreeQuarters: {
+    initial: { y: "75vh" },
+    animate: { y: 0 },
+    exit: { y: "75vh" },
+  },
+  fadeSlideInRightThreeQuarters: {
+    initial: { x: "75vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "75vw", opacity: 0 },
+  },
+  fadeSlideInLeftThreeQuarters: {
+    initial: { x: "-75vw", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: "-75vw", opacity: 0 },
+  },
+  fadeSlideInTopLeftThreeQuarters: {
+    initial: { x: "-75vw", y: "-75vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-75vw", y: "-75vh", opacity: 0 },
+  },
+  fadeSlideInBottomLeftThreeQuarters: {
+    initial: { x: "-75vw", y: "75vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "-75vw", y: "75vh", opacity: 0 },
+  },
+  fadeSlideInTopThreeQuarters: {
+    initial: { y: "-75vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "-75vh", opacity: 0 },
+  },
+  fadeSlideInTopRightThreeQuarters: {
+    initial: { x: "75vw", y: "-75vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "75vw", y: "-75vh", opacity: 0 },
+  },
+  fadeSlideInBottomRightThreeQuarters: {
+    initial: { x: "75vw", y: "75vh", opacity: 0 },
+    animate: { x: 0, y: 0, opacity: 1 },
+    exit: { x: "75vw", y: "75vh", opacity: 0 },
+  },
+  fadeSlideInBottomThreeQuarters: {
+    initial: { y: "75vh", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    exit: { y: "75vh", opacity: 0 },
+  },
+  none: {
+    initial: {},
+    animate: {},
+    exit: {},
+  },
   fade: {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
@@ -310,30 +825,38 @@ const transitionVariants: Record<string, Variants> = {
     animate: { scaleX: 1, opacity: 1 },
     exit: { scaleX: -1, opacity: 0 },
   },
+  flipY: {
+    initial: { scaleY: -1, opacity: 0 },
+    animate: { scaleY: 1, opacity: 1 },
+    exit: { scaleY: -1, opacity: 0 },
+  },
   zoom: {
     initial: { scale: 0.5, opacity: 0 },
     animate: { scale: 1, opacity: 1 },
     exit: { scale: 0.5, opacity: 0 },
   },
-  slide: {
-    initial: { x: "-100%" },
-    animate: { x: 0 },
-    exit: { x: "-100%" },
+  rotate3D: {
+    initial: { rotateX: 90, opacity: 0 },
+    animate: { rotateX: 0, opacity: 1 },
+    exit: { rotateX: 90, opacity: 0 },
   },
-  slideInLeft: {
-    initial: { x: "-100%" },
-    animate: { x: 0 },
-    exit: { x: "-100%" },
+  scaleRotate: {
+    initial: { scale: 0, rotate: 180, opacity: 0 },
+    animate: { scale: 1, rotate: 0, opacity: 1 },
+    exit: { scale: 0, rotate: 180, opacity: 0 },
   },
-  slideInRight: {
-    initial: { x: "100%" },
-    animate: { x: 0 },
-    exit: { x: "100%" },
+  bounce: {
+    initial: { y: "-100vh" },
+    animate: {
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 10 },
+    },
+    exit: { y: "-100vh" },
   },
-  fadeSlideInRight: {
-    initial: { x: "50%", opacity: 0 },
-    animate: { x: 0, opacity: 1 },
-    exit: { x: "50%", opacity: 0 },
+  spin: {
+    initial: { rotate: 0, opacity: 0 },
+    animate: { rotate: 360, opacity: 1 },
+    exit: { rotate: 0, opacity: 0 },
   },
 };
 

@@ -1433,6 +1433,24 @@ export default {
         "sharp-snap": "cubic-bezier(0.9, 0.1, 0.1, 0.1)",
         "slow-mo": "cubic-bezier(0.05, 0.85, 0.15, 1)",
       },
+      maskImage: {
+        "fade-bottom":
+          "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        "fade-top":
+          "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        "fade-left":
+          "linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        "fade-right":
+          "linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        "fade-outer":
+          "radial-gradient(circle, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%)",
+        "fade-top-bottom":
+          "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0))",
+        "fade-right-left":
+          "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0))",
+        "fade-center":
+          "radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%)",
+      },
     },
   },
   variants: {
@@ -1639,6 +1657,57 @@ export default {
         },
         ".butterflyFont": {
           fontFamily: "'Butterfly Kids', cursive",
+        },
+        ".mono-font": {
+          fontFamily: '"Roboto", monospace',
+        },
+        ".fade-bottom": {
+          maskImage:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+          "-webkit-mask-image":
+            "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        },
+        ".fade-top": {
+          maskImage:
+            "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+          "-webkit-mask-image":
+            "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        },
+        ".fade-left": {
+          maskImage:
+            "linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+          "-webkit-mask-image":
+            "linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        },
+        ".fade-right": {
+          maskImage:
+            "linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+          "-webkit-mask-image":
+            "linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))",
+        },
+        ".fade-outer": {
+          maskImage:
+            "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 70%)",
+          "-webkit-mask-image":
+            "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 70%)",
+        },
+        ".fade-top-bottom": {
+          maskImage:
+            "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0))",
+          "-webkit-mask-image":
+            "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0))",
+        },
+        ".fade-right-left": {
+          maskImage:
+            "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0))",
+          "-webkit-mask-image":
+            "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0))",
+        },
+        ".fade-center": {
+          maskImage:
+            "radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%)",
+          "-webkit-mask-image":
+            "radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 50%)",
         },
       });
     }),

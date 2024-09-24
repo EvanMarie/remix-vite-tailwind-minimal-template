@@ -1785,6 +1785,21 @@ export default {
           overflow: "hidden",
           scrollBehavior: "smooth",
           borderRadius: "0px",
+          fontSize: theme("fontSize.md[0]"),
+          lineHeight: theme("fontSize.md[1].lineHeight"),
+          "@screen mobile": {
+            fontSize: "2vh",
+            lineHeight: "1.44",
+          },
+          "@screen sm": {
+            fontSize: "2.2vh",
+          },
+          "@screen md": {
+            fontSize: "2.3vh",
+          },
+          "@screen xl": {
+            fontSize: "2.6vh",
+          },
         },
         a: {
           textDecoration: "none",
@@ -1795,49 +1810,104 @@ export default {
         p: {
           margin: 0,
           padding: 0,
-          fontSize: "inherit",
+          // fontSize: "inherit",
         },
         h1: {
-          fontSize: "5.5vh",
-          lineHeight: 1.05,
-          fontWight: 600,
           color: theme("colors.col.300"),
           textShadow: theme("textShadow.textShadow"),
+          marginTop: "1.5vh",
+          fontWeight: 600,
+          marginBottom: "1.5vh",
+          "@screen mobile": {
+            fontSize: "3.4vh",
+            lineHeight: 1.2,
+          },
+          "@screen sm": {
+            fontSize: "3.6vh",
+          },
+          "@screen md": {
+            fontSize: "4.5vh",
+          },
         },
         h2: {
-          fontSize: "4.5vh",
-          lineHeight: 1.05,
-          fontWight: 600,
           color: theme("colors.col.300"),
           textShadow: theme("textShadow.textShadow"),
+          marginTop: "1.5vh",
+          marginBottom: "1.5vh",
+          "@screen mobile": {
+            fontSize: "3vh",
+            lineHeight: 1.2,
+          },
+          "@screen sm": {
+            fontSize: "3.2vh",
+          },
+          "@screen md": {
+            fontSize: "3.6vh",
+          },
         },
         h3: {
-          fontSize: "3.5vh",
-          lineHeight: 1.05,
-          fontWight: 600,
           color: theme("colors.col.300"),
           textShadow: theme("textShadow.textShadow"),
+          marginTop: "1.5vh",
+          marginBottom: "1.5vh",
+          "@screen mobile": {
+            fontSize: "2.6vh",
+            lineHeight: 1.2,
+          },
+          "@screen sm": {
+            fontSize: "2.8vh",
+          },
+          "@screen md": {
+            fontSize: "3.2vh",
+          },
         },
         h4: {
-          fontSize: "2.5vh",
-          lineHeight: 1.05,
-          fontWight: 600,
           color: theme("colors.col.300"),
           textShadow: theme("textShadow.textShadow"),
+          marginTop: "1.5vh",
+          marginBottom: "1.5vh",
+          "@screen mobile": {
+            fontSize: "2.2vh",
+            lineHeight: 1.2,
+          },
+          "@screen sm": {
+            fontSize: "2.4vh",
+          },
+          "@screen md": {
+            fontSize: "2.8vh",
+          },
         },
         h5: {
-          fontSize: "2vh",
-          lineHeight: 1.05,
-          fontWight: 600,
           color: theme("colors.col.300"),
           textShadow: theme("textShadow.textShadow"),
+          marginTop: "1.5vh",
+          marginBottom: "1.5vh",
+          "@screen mobile": {
+            fontSize: "2vh",
+            lineHeight: 1.2,
+          },
+          "@screen sm": {
+            fontSize: "2.2vh",
+          },
+          "@screen md": {
+            fontSize: "2.6vh",
+          },
         },
         h6: {
-          fontSize: "1.7vh",
-          lineHeight: 1.05,
-          fontWight: 600,
           color: theme("colors.col.300"),
           textShadow: theme("textShadow.textShadow"),
+          marginTop: "1.5vh",
+          marginBottom: "1.5vh",
+          "@screen mobile": {
+            fontSize: "1.8vh",
+            lineHeight: 1.2,
+          },
+          "@screen sm": {
+            fontSize: "2vh",
+          },
+          "@screen md": {
+            fontSize: "2.4vh",
+          },
         },
         table: {
           width: "100%",

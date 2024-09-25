@@ -55,6 +55,7 @@ interface CustomNavLinkProps {
   useHash?: boolean;
   useActive?: boolean;
   className?: string;
+  target?: string;
 }
 
 interface ColoredListItemProps {
@@ -413,13 +414,14 @@ export function CustomNavLink({
   linkText,
   textClassName = "text-col-800 text-stroke-9-800 hover:textGlow hover:transition-300",
   className,
+  target,
 }: CustomNavLinkProps) {
   const hash = useLocation().hash;
   console.log(hash);
 
   return (
     <Box className={className}>
-      <NavLink to={to} className={className}>
+      <NavLink to={to} className={className} target={target}>
         <Text className={textClassName}>{linkText}</Text>
       </NavLink>
     </Box>
@@ -541,6 +543,11 @@ export default function Design() {
             <CustomNavLink to="#transitions" linkText="Transitions" />
             <CustomNavLink to="#shadow" linkText="Shadows" />
             <CustomNavLink to="#text" linkText="Text" />
+            <CustomNavLink
+              to="htmlElements"
+              target="_blank"
+              linkText="HTML Defaults"
+            />
           </Wrap>
         </FlexFull>
         <VStackFull className="h-fit px-[2vh] py-1vh" gap="gap-[2vh]">

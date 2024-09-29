@@ -572,21 +572,30 @@ export default {
         { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
+          [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
       minHeight: Object.assign(
         { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
+          [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
       maxHeight: Object.assign(
         { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
+          [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
       width: Object.assign(
@@ -594,7 +603,9 @@ export default {
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
       maxWidth: Object.assign(
@@ -602,7 +613,9 @@ export default {
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
       minWidth: Object.assign(
@@ -610,23 +623,19 @@ export default {
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
-      maxWidth: Object.assign(
+      padding: Object.assign(
         { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
-        }))
-      ),
-      padding: Object.assign(
-        {},
-        ...Array.from({ length: 1000 }, (_, i) => ({
-          [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
-          [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
-          [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
       gap: Object.assign(
@@ -634,15 +643,37 @@ export default {
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
         }))
       ),
-      // Add pixels to the spacing scale
       spacing: Object.assign(
         { "0px": "0px" },
         ...Array.from({ length: 1000 }, (_, i) => ({
           [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
           [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
+          [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
+          [`${i + 1}px`]: `${i + 1}px`,
+        }))
+      ),
+      borderRadius: Object.assign(
+        {
+          xxs: "0.3vh",
+          xs: "0.5vh",
+          sm: "0.7vh",
+          md: "1vh",
+          lg: "1.5vh",
+          xl: "2vh",
+          xxl: "3vh",
+          xxxl: "4vh",
+          full: "100%",
+        },
+        ...Array.from({ length: 1000 }, (_, i) => ({
+          [`${(i + 1) / 10}vh`]: `${(i + 1) / 10}vh`,
+          [`${(i + 1) / 10}vw`]: `${(i + 1) / 10}vw`,
+          [`${(i + 1) / 10}svh`]: `${(i + 1) / 10}svh`,
           [`${(i + 1) / 10}%`]: `${(i + 1) / 10}%`,
           [`${i + 1}px`]: `${i + 1}px`,
         }))
@@ -1036,17 +1067,6 @@ export default {
           "radial-gradient(circle, rgba(46, 85, 140, 0.5) 0%, rgba(45, 19, 84, 0.5) 100%)",
         radial6op75:
           "radial-gradient(circle, rgba(46, 85, 140, 0.75) 0%, rgba(45, 19, 84, 0.75) 100%)",
-      },
-      borderRadius: {
-        xxs: "0.3vh",
-        xs: "0.5vh",
-        sm: "0.7vh",
-        md: "1vh",
-        lg: "1.5vh",
-        xl: "2vh",
-        xxl: "3vh",
-        xxxl: "4vh",
-        full: "100%",
       },
       keyframes: {
         wiggle: {

@@ -1,5 +1,4 @@
 import { FlexFull, HStackFull } from "./mainContainers";
-import Text from "./text";
 
 export default function DividerHeading({
   heading,

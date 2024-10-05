@@ -1,61 +1,71 @@
-import DividerHeading from "~/buildingBlockComponents/dividerHeading";
-import {
-  HStackFull,
-  Transition,
-  VStackFull,
-} from "~/buildingBlockComponents/mainContainers";
+import { FlexFull, HStackFull } from "./mainContainers";
 
-export default function AnimatedBulletList({
+export default function DividerHeading({
   heading,
-  items,
-  overallDelay = 5,
-  headingShadow = "textFogXxs",
-  headingColor = "text-col-500",
-  headingDivider = "both",
+  width,
+  noDividers,
+  dividerBg = "bg-col-500",
+  dividerHeight = "h-0.1vh",
+  padding = "py-1vh px-2vh",
+  textSize = "text-xl",
+  textColor = "text-col-500",
+  textShadow = "textShadow",
+  dividerShadow = "shadowNarrowNormal",
+  gap = "gap-1.5vh",
+  fontFamily,
+  bothSides = true,
+  rightSide,
+  leftSide,
+  className = "",
+  justify,
 }: {
   heading: string;
-  items: string[];
-  overallDelay?: number;
-  headingShadow?: string;
-  headingColor?: string;
-  headingDivider?: "both" | "left" | "right" | "none";
+  width?: string;
+  noDividers?: boolean;
+  justify?: string;
+  dividerBg?: string;
+  dividerHeight?: string;
+  fontFamily?: string;
+  padding?: string;
+  textSize?: string;
+  textColor?: string;
+  textShadow?: string;
+  dividerShadow?: string;
+  gap?: string;
+  bothSides?: boolean;
+  rightSide?: boolean;
+  leftSide?: boolean;
+  className?: string;
 }) {
-  const headingBothSides = headingDivider === "both";
-  const headingLeftSide = headingDivider === "left";
-  const headingRightSide = headingDivider === "right";
-  const headingNoDividers = headingDivider === "none";
+  function Divider({
+    height = dividerHeight,
+    bg = dividerBg,
+    shadow = dividerShadow,
+  }: {
+    height?: string;
+    bg?: string;
+    shadow?: string;
+  }) {
+    return (
+      <FlexFull className={`text-transparent ${height} ${bg} ${shadow}`}>
+        .
+      </FlexFull>
+    );
+  }
 
   return (
-    <VStackFull align="items-start">
-      x{" "}
-      <DividerHeading
-        heading={heading}
-        textColor={headingColor}
-        textShadow={headingShadow}
-        bothSides={headingBothSides}
-        rightSide={headingRightSide}
-        leftSide={headingLeftSide}
-        noDividers={headingNoDividers}
-      />
-      <ul className="w-full list-disc pl-5">
-        {" "}
-        {/* Added list-disc and pl-5 classes */}
-        {items.map((item, index) => (
-          <Transition
-            key={index}
-            type="rotate3D"
-            delay={0.1 * (index + overallDelay)}
-            className="w-full"
-          >
-            <li className="text-left w-full textFogXxs">
-              <HStackFull gap="gap-2vh">
-                <span>𐩒</span>
-                {item}
-              </HStackFull>
-            </li>
-          </Transition>
-        ))}
-      </ul>
-    </VStackFull>
+    <HStackFull
+      className={`${width} ${className} ${padding} ${gap} ${justify} items-center`}
+    >
+      {bothSides && !rightSide && !leftSide && !noDividers && <Divider />}
+      {leftSide ? <Divider /> : null}
+      <span
+        className={`${textSize} ${textColor} ${textShadow} ${fontFamily} flex flex-shrink-0 text-nowrap`}
+      >
+        {heading}
+      </span>
+      {rightSide && !noDividers && <Divider />}
+      {bothSides && !leftSide && !rightSide && !noDividers && <Divider />}
+    </HStackFull>
   );
 }

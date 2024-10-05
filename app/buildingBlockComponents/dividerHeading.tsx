@@ -4,6 +4,7 @@ import Text from "./text";
 export default function DividerHeading({
   heading,
   width,
+  noDividers,
   dividerBg = "bg-col-500",
   dividerHeight = "h-0.1vh",
   padding = "py-1vh px-2vh",
@@ -17,9 +18,12 @@ export default function DividerHeading({
   rightSide,
   leftSide,
   className = "",
+  justify,
 }: {
   heading: string;
   width?: string;
+  noDividers?: boolean;
+  justify?: string;
   dividerBg?: string;
   dividerHeight?: string;
   fontFamily?: string;
@@ -52,17 +56,17 @@ export default function DividerHeading({
 
   return (
     <HStackFull
-      className={`${width} ${className} ${padding} ${gap} items-center`}
+      className={`${width} ${className} ${padding} ${gap} ${justify} items-center`}
     >
-      {bothSides && !rightSide && !leftSide && <Divider />}
+      {bothSides && !rightSide && !leftSide && !noDividers && <Divider />}
       {leftSide ? <Divider /> : null}
       <span
         className={`${textSize} ${textColor} ${textShadow} ${fontFamily} flex flex-shrink-0 text-nowrap`}
       >
         {heading}
       </span>
-      {rightSide && <Divider />}
-      {bothSides && !leftSide && !rightSide && <Divider />}
+      {rightSide && !noDividers && <Divider />}
+      {bothSides && !leftSide && !rightSide && !noDividers && <Divider />}
     </HStackFull>
   );
 }

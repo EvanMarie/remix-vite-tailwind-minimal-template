@@ -913,6 +913,10 @@ type TransitionProps = {
   children?: ReactNode;
   className?: string;
   type?: TransitionVariantType;
+  animationType?: "tween" | "spring";
+  mass?: number;
+  damping?: number;
+  stiffness?: number;
   delay?: number;
   duration?: number;
   style?: CSSProperties;
@@ -927,7 +931,11 @@ export const Transition = forwardRef<HTMLDivElement, TransitionProps>(
     {
       children,
       type = "fade",
-      delay = 1,
+      animationType = "tween",
+      mass = 1,
+      damping = 20,
+      stiffness = 200,
+      delay = 0,
       className = "",
       style = {},
       duration = 0.5,
@@ -940,13 +948,17 @@ export const Transition = forwardRef<HTMLDivElement, TransitionProps>(
     const transitionConfig = {
       duration,
       delay,
+      type: animationType,
+      mass,
+      damping,
+      stiffness,
       ease: "easeOut", // You can make this configurable if needed
     };
 
     return (
       <motion.div
         ref={ref}
-        className={`flex justify-center overflow-hidden ${className}`}
+        className={`flex justify-center ${className}`}
         variants={transitionVariants[type]}
         initial="initial"
         animate="animate"
@@ -963,8 +975,6 @@ export const Transition = forwardRef<HTMLDivElement, TransitionProps>(
 );
 
 Transition.displayName = "Transition";
-
-export default Transition;
 
 // -------------------------- TRANSITION FULL -------------------------- //
 
